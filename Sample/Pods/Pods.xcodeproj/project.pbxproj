@@ -1,0 +1,1301 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0CA6357476373C221D44C498AA1D65FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F59B91E027614C0AA0C5E104818B7E /* Foundation.framework */; };
+		0E5D8D859302BAF4431C6004132BCFDF /* SystemSounds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D05899C4626511CB2C87F83459663B7 /* SystemSounds.framework */; };
+		0E723F499C7F623D8FF64736F5DA7EC1 /* JustLayout+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA21B780977F5BB74853F7C6831FB9C /* JustLayout+Size.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		13C26D96CEF10AF83C58D71FC636994D /* JustLayout+Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B323C26C92DCC22A51A8001D36D4CD5 /* JustLayout+Operators.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		143BD83AED1ADE63FDC14F0F5891DA33 /* JustLayout+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F1FB7709FC7452F9D5590536F3B87A /* JustLayout+Content.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		150A07A98D041813BD989BE025A009F1 /* JustLayout+Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A260E9CC08561E5DE4112DBB07698D /* JustLayout+Tap.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1C3B11A652C2AF1235E6981DBBBDA1D5 /* Kingfisher-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 853DC9205C60C706451F384A911676F5 /* Kingfisher-dummy.m */; };
+		1D450BC4952DBED990CCF95CC8D4FFA8 /* JustLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 456A6FAFE2DA8EAF3B4F49040814D0B8 /* JustLayout.framework */; };
+		2138BC6472178CB9F5718768C6A6B169 /* Pods-ParamountDialogsSample-Sample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBB3A94941CA76113958CCD690C5760 /* Pods-ParamountDialogsSample-Sample-dummy.m */; };
+		2187B3EAB50BE0D4AC21E5A8C3CA793D /* ParamountDialogs-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F34C64FC3A74341471AA78781A74D3 /* ParamountDialogs-dummy.m */; };
+		24534D0B053D1ED69FDB45468DE8867E /* ParamountDialogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0867D79276D038CDC9D3E045E6B65D76 /* ParamountDialogs.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		280AF380471897EA10E1922CD21B7644 /* ImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B4DE6FDF0DD7638E9AB592F73383B7 /* ImageModifier.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		2B4A57B23792218B56FC969EDEBBDE2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F59B91E027614C0AA0C5E104818B7E /* Foundation.framework */; };
+		2F288ED3641B2B4775884C462AE377E6 /* Kingfisher-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B102BF6B71EB590EB28E675B59B6D0D /* Kingfisher-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		325C2428C38876B5796BF2AB8A6DA693 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9D2BA16F21BFF7E2853E0463BEB4ED /* UIKit.framework */; };
+		361B44E73A7E63364FC77000F3426D0C /* JustLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F854C038FE44C9F11CCFCBF60667FD6 /* JustLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3679502F8CE7727D9980F831552726F3 /* ParamountDialogs-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F38022A7B6CF8F4E815E0976DEC2C9C1 /* ParamountDialogs-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3C241042720DC51BA8C9C6DC26FBA3AE /* JustLayout+Equation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAED7B9DEA0B3F926ED2F4332622044 /* JustLayout+Equation.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		3D02E144653B5BBEE501B19281BF453E /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C959EE0795614B64D54FAADBB7C2EA7A /* Kingfisher.framework */; };
+		432D8294961EC6165DC9DE9AFFD0284C /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CBA960DC5E34501F026DD8D5F7EC5 /* ImageTransition.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		45E86682C30CC2EFD5E6DC71397CA4FB /* JustLayout+HeightOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA04182E872969A3DBCC289A1FE524E /* JustLayout+HeightOperators.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		489BE425D1FE27F5D5A0A2942C88D46B /* JustLayout+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057037A1B31896A214A91E2A9C6FA64 /* JustLayout+Hierarchy.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		4A79E904C80B13D4DBBE7D7A0A0B4774 /* KingfisherOptionsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB3E6B66DC63EBB83C4EBB1F5504C58 /* KingfisherOptionsInfo.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		52416A6AC7387ECACCC45596498D96AD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9FCECF23C4FFD6FCA534290EE08B12 /* CFNetwork.framework */; };
+		56283C4D397C058D245EB1E2F5B67C41 /* ThreadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF073834E982EAD3CC7AB0FD0155C264 /* ThreadHelper.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5B528595C4DEAADA2A85CD855EA92DC5 /* SystemSoundsDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AAACE611D57BFAEB1A50D1821C5D3B /* SystemSoundsDefine.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		5B5D8AE167BD8E304CE474A9B8DBA2B4 /* Kingfisher.h in Headers */ = {isa = PBXBuildFile; fileRef = 669939E0196EAEB62E4C3757F80DF17A /* Kingfisher.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D10B9D59FED897578F73B0C671F9BA4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C034ED92FC6BB306607A499DFD9541 /* AudioToolbox.framework */; };
+		5FA9DF89636B35137894D84E635C4A43 /* JustLayout+Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC61715BCDC1F6FF3E3046C116C79A /* JustLayout+Position.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		602D2F1E8514F79D49AE39A464505B3C /* JustLayout+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BBFFC26297F2A9A2AD890F7FCFEC173 /* JustLayout+Constraints.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6E8F597BA9D8AD09E372CD356C0823D1 /* FormatIndicatedCacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C86C84F13D6B0D6F50FCF0BB507EBC2 /* FormatIndicatedCacheSerializer.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		6EDCE4FA7F9B0129F1B33CA64765A95C /* KingfisherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D976882DFEAF0C73867EF6CA1B80679B /* KingfisherManager.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		797F5AB366EDB6E6206BBAA899E9EE1C /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F8A75E04EF1073119933DEDAF41E9E /* Placeholder.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		81C3579B75481084C6998DD4DA3E4656 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9D2BA16F21BFF7E2853E0463BEB4ED /* UIKit.framework */; };
+		842ECE2E8FD88BD099EB6FD501CE2403 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8BDFB4E9D53E2D8240B504EB750BE0 /* Filter.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		84403CC062BDF9A84C7241756167B959 /* RequestModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C1325C34B14F7AD940F51331438B28 /* RequestModifier.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		84DF7FD4B3C61FDC7D3CCCD930E4EB1A /* JustLayout+GetConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114F35F3A3AB563017D73DD402171CC3 /* JustLayout+GetConstraint.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		865800A2AA6D7FC4521D0E7DE8C47359 /* JustLayout+Stacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6EF4F1AF65E430DD75828DE5A702C0F /* JustLayout+Stacks.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		92D630EA1F79D47A935DA11DA3B441F2 /* SystemSounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4095C47E1FDA0827558611F9E86CA4C3 /* SystemSounds.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		976ED67263B71B5F711936D48D819BD1 /* JustLayout+Percentage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE70FFE81E322259A4F546C77F52274 /* JustLayout+Percentage.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9BC0F89A57E1B4DF575CC736E880FAEA /* Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA40B15C5C49159F1FBC1E096B8032B /* Kingfisher.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		9F514567AF869EAEC68B7065A24F2A4F /* JustLayout+LayoutAnchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC22D2143C3B5BA8A5C93D2FC3BABFEE /* JustLayout+LayoutAnchors.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A4BAE6A69D9D700EF1A3E54FD0A5FA25 /* JustLayout+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB963E1A9E64CBA9AB0B8CC6068D520 /* JustLayout+Style.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		AEB21C6FD808C527505F4C65844533B8 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1481520CAAEFCE60454619901E2643B9 /* String+MD5.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B637B7B9935ABFC735902CECF7E97CAD /* AnimatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D39C027C398533695BAF11849EAC2A9C /* AnimatedImageView.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		BCB5DFBCD0A885A8C4AD3F882364FC12 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F59B91E027614C0AA0C5E104818B7E /* Foundation.framework */; };
+		BF70BFC0EF94A2882F73B4CCE24C618A /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B40499B47E1CEECD0BD304AABB561F8 /* Image.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C0EE9881740163937EFE24588892F9FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F59B91E027614C0AA0C5E104818B7E /* Foundation.framework */; };
+		C90D3CF596E6790F53ECE06BB1239C3D /* JustLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F6611B3C3E30F6D7F6E8F16D3758FA40 /* JustLayout-dummy.m */; };
+		CCD511112C75259DEC04089982E6AC70 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65C06E3A434EBF1D8896FFBD70F28D3A /* ImageDownloader.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CE95507AB14AFEB978899E5A65A8B5C2 /* Indicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B097723BD1F46B0F58717B387FC5231 /* Indicator.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		CF4EA0CB001D2A20EC7C3F7B2A8C11C7 /* SystemSounds.h in Headers */ = {isa = PBXBuildFile; fileRef = EDC2416CD6ECBCD1239B926EB529C746 /* SystemSounds.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D6FBE881555E633D746F301C86124BF6 /* ImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585506A1EF9AAD93982D2D5D67AD8997 /* ImageView+Kingfisher.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		DDBE670AD152272D156B19824C4927FF /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F72710D8A0D1F1C1C5F1B13765BB2 /* ImageCache.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		E4FCECD782CC9367809A657FCFCD6752 /* JustLayout+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = F769D7FDDF56AE337FCC29289E450F23 /* JustLayout+Center.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		E7C28DF1EC12E603BCAE58B587E626BE /* UIButton+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C9C626BCF0F683EEE77D0A0E1833DD /* UIButton+Kingfisher.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		EA8DD2AF3A58C38C16CD19AFBCC737C2 /* JustLayout+Alignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBB154BC561E578B173B9035F875A69 /* JustLayout+Alignment.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		ECAC5AD8CD0EEA427EE4EC1E394D1B68 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F59B91E027614C0AA0C5E104818B7E /* Foundation.framework */; };
+		ED37B360D5C446703ECC48CD58016677 /* CacheSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44EF03B8AFC9AEC5B7C91483FC72F8A /* CacheSerializer.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		ED5B035D3DB1189C596451CD3E1B8F1B /* JustLayout+FlexibleMargin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4184F997C8B28ABDD7E5D42EBE47D113 /* JustLayout+FlexibleMargin.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		EDA8958AE6DFEF723B2E9DEBC9091ABC /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42B3290F18C9EE03CE46849AE4D0539 /* ImageProcessor.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		EDFD702D62E681124E27514FD02A047C /* Pods-ParamountDialogsSample-Sample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 68EC7D3F284211FAEECEC6A09ADBB0CC /* Pods-ParamountDialogsSample-Sample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE7B8515907147560F5332F0BC83C481 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB72A8902D7A21C189EFDC235156008 /* Resource.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		EEEB66479B23A78A4A7E354076130C74 /* JustLayout+Fill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D955DEA644B392CDB3BC8B9D879B490 /* JustLayout+Fill.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F44F2787E90354F7CFBFD1790220E28D /* SystemSounds-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 153DA6B6E7C11EFA28A57218C7413CA4 /* SystemSounds-dummy.m */; };
+		F4E509F392A027ABAD2922148C7B4A2E /* ImagePrefetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D48888D6B741BBD9A148D5F5E54EC9 /* ImagePrefetcher.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		FFAFC488C514F054C3496F7D67A531CE /* SystemSounds-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 443B025378314FA734062FFC1699E819 /* SystemSounds-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1771B5F048E76D73A1C98D7ADACD0274 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D3A6AC3617E2EF41FED3E702DC5C6711;
+			remoteInfo = SystemSounds;
+		};
+		595DC0163502ADB11CFD049487308F5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81A2B7463E492A2AF2A634FFB6023012;
+			remoteInfo = JustLayout;
+		};
+		73AB21B66EE79277114CD108DE4001E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D3A6AC3617E2EF41FED3E702DC5C6711;
+			remoteInfo = SystemSounds;
+		};
+		8E7889D6FB9CDC5F01FD476CF45CFD6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81A2B7463E492A2AF2A634FFB6023012;
+			remoteInfo = JustLayout;
+		};
+		C44B0E69ED9843783066A4F6F8F3DC38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F712943B3C5592E82604940D11CE08A;
+			remoteInfo = Kingfisher;
+		};
+		CCB25C81904AED2C355808BBDAB5985C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3D2293C311778C386997B7331F19AFB;
+			remoteInfo = ParamountDialogs;
+		};
+		D91936C32C21FFF1C2A0BD518CFE16D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F712943B3C5592E82604940D11CE08A;
+			remoteInfo = Kingfisher;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00E5AAE7BC8BF380284042AC22A205D4 /* Pods_ParamountDialogsSample_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ParamountDialogsSample_Sample.framework; path = "Pods-ParamountDialogsSample-Sample.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		05F59B91E027614C0AA0C5E104818B7E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		07F04ADE628EE04650C860C59822B7CB /* Pods-ParamountDialogsSample-Sample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ParamountDialogsSample-Sample-frameworks.sh"; sourceTree = "<group>"; };
+		0867D79276D038CDC9D3E045E6B65D76 /* ParamountDialogs.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParamountDialogs.swift; path = ParamountDialogs/ParamountDialogs.swift; sourceTree = "<group>"; };
+		086F9697409B867A5979F5166E270514 /* SystemSounds-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SystemSounds-prefix.pch"; sourceTree = "<group>"; };
+		08CC97B79C832573A028D232A8AD6222 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Kingfisher.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A82D3561DCABD49BC4E17BB195CA545 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B323C26C92DCC22A51A8001D36D4CD5 /* JustLayout+Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JustLayout+Operators.swift"; path = "JustLayout/JustLayout/JustLayout+Operators.swift"; sourceTree = "<group>"; };
+		0B776543616780BD26F9929248FC4A3E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B7BBA8B9B0F29BBAA6D6D41D8B1EF66 /* JustLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = JustLayout.modulemap; sourceTree = "<group>"; };
+		0C367B18D68D8EF05666A64524F4F80D /* JustLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JustLayout.framework; path = JustLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DB963E1A9E64CBA9AB0B8CC6068D520 /* JustLayout+Style.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JustLayout+Style.swift"; path = "JustLayout/Helpers/JustLayout+Style.swift"; sourceTree = "<group>"; };
+		0DBB154BC561E578B173B9035F875A69 /* JustLayout+Alignment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JustLayout+Alignment.swift"; path = "JustLayout/JustLayout/JustLayout+Alignment.swift"; sourceTree = "<group>"; };
+		10EF72E52F382B390DFA215335E9C204 /* Pods-ParamountDialogsSample-Sample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ParamountDialogsSample-Sample-resources.sh"; sourceTree = "<group>"; };
+		114F35F3A3AB563017D73DD402171CC3 /* JustLayout+GetConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JustLayout+GetConstraint.swift"; path = "JustLayout/JustLayout/JustLayout+GetConstraint.swift"; sourceTree = "<group>"; };
+		140CBA960DC5E34501F026DD8D5F7EC5 /* ImageTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageTransition.swift; path = Sources/ImageTransition.swift; sourceTree = "<group>"; };
+		1481520CAAEFCE60454619901E2643B9 /* String+MD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+MD5.swift"; path = "Sources/String+MD5.swift"; sourceTree = "<group>"; };
+		153DA6B6E7C11EFA28A57218C7413CA4 /* SystemSounds-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SystemSounds-dummy.m"; sourceTree = "<group>"; };
+		156D6AB714D6FFB5A5B8764CF6884EAC /* ParamountDialogs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ParamountDialogs.xcconfig; sourceTree = "<group>"; };
+		16C034ED92FC6BB306607A499DFD9541 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		273F72710D8A0D1F1C1C5F1B13765BB2 /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCache.swift; path = Sources/ImageCache.swift; sourceTree = "<group>"; };
+		2DA04182E872969A3DBCC289A1FE524E /* JustLayout+HeightOperators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JustLayout+HeightOperators.swift"; path = "JustLayout/JustLayout/JustLayout+HeightOperators.swift"; sourceTree = "<group>"; };
+		360C2FD7548B3751FAAC05794AA8AE86 /* SystemSounds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SystemSounds.framework; path = SystemSounds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C86C84F13D6B0D6F50FCF0BB507EBC2 /* FormatIndicatedCacheSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FormatIndicatedCacheSerializer.swift; path = Sources/FormatIndicatedCacheSerializer.swift; sourceTree = "<group>"; };
+		3FB03BB4B481861E2ECCAF29609960FA /* SystemSounds.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SystemSounds.modulemap; sourceTree = "<group>"; };
+		4095C47E1FDA0827558611F9E86CA4C3 /* SystemSounds.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SystemSounds.swift; path = SystemSounds/SystemSounds/SystemSounds.swift; sourceTree = "<group>"; };
+		4184F997C8B28ABDD7E5D42EBE47D113 /* JustLayout+FlexibleMargin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JustLayout+FlexibleMargin.swift"; path = "JustLayout/JustLayout/JustLayout+FlexibleMargin.swift"; sourceTree = "<group>"; };
+		421B954FB9A28392D87C1C7BA0D20198 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		443B025378314FA734062FFC1699E819 /* SystemSounds-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SystemSounds-umbrella.h"; sourceTree = "<group>"; };
+		456A6FAFE2DA8EAF3B4F49040814D0B8 /* JustLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JustLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		45C9C626BCF0F683EEE77D0A0E1833DD /* UIButton+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+Kingfisher.swift"; path = "Sources/UIButton+Kingfisher.swift"; sourceTree = "<group>"; };
+		4AA3633423E9031FDFC94406996E40AC /* ParamountDialogs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ParamountDialogs.framework; path = ParamountDialogs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D05899C4626511CB2C87F83459663B7 /* SystemSounds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SystemSounds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D8BDFB4E9D53E2D8240B504EB750BE0 /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Filter.swift; sourceTree = "<group>"; };
+		4EEC61715BCDC1F6FF3E3046C116C79A /* JustLayout+Position.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JustLayout+Position.swift"; path = "JustLayout/JustLayout/JustLayout+Position.swift"; sourceTree = "<group>"; };
+		4F854C038FE44C9F11CCFCBF60667FD6 /* JustLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JustLayout-umbrella.h"; sourceTree = "<group>"; };
+		53969E4EAE491C337D135F329F2040AB /* Pods-ParamountDialogsSample-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ParamountDialogsSample-Sample.release.xcconfig"; sourceTree = "<group>"; };
+		585506A1EF9AAD93982D2D5D67AD8997 /* ImageView+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ImageView+Kingfisher.swift"; path = "Sources/ImageView+Kingfisher.swift"; sourceTree = "<group>"; };
+		5B3E38353F1D8A173707F34A7D75FBE4 /* Kingfisher-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-prefix.pch"; sourceTree = "<group>"; };
+		65C06E3A434EBF1D8896FFBD70F28D3A /* ImageDownloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDownloader.swift; path = Sources/ImageDownloader.swift; sourceTree = "<group>"; };
+		65F34C64FC3A74341471AA78781A74D3 /* ParamountDialogs-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ParamountDialogs-dummy.m"; sourceTree = "<group>"; };
+		669939E0196EAEB62E4C3757F80DF17A /* Kingfisher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Kingfisher.h; path = Sources/Kingfisher.h; sourceTree = "<group>"; };
+		68EC7D3F284211FAEECEC6A09ADBB0CC /* Pods-ParamountDialogsSample-Sample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ParamountDialogsSample-Sample-umbrella.h"; sourceTree = "<group>"; };
+		70C5F77271C140DD264D3C2F70EDD6DA /* Pods-ParamountDialogsSample-Sample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ParamountDialogsSample-Sample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		79A260E9CC08561E5DE4112DBB07698D /* JustLayout+Tap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JustLayout+Tap.swift"; path = "JustLayout/Helpers/JustLayout+Tap.swift"; sourceTree = "<group>"; };
+		7A86F90E2CA51B6CCEA11B2E802A49BE /* ParamountDialogs-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ParamountDialogs-prefix.pch"; sourceTree = "<group>"; };
+		7B097723BD1F46B0F58717B387FC5231 /* Indicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Indicator.swift; path = Sources/Indicator.swift; sourceTree = "<group>"; };
+		7B102BF6B71EB590EB28E675B59B6D0D /* Kingfisher-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Kingfisher-umbrella.h"; sourceTree = "<group>"; };
+		7BBFFC26297F2A9A2AD890F7FCFEC173 /* JustLayout+Constraints.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JustLayout+Constraints.swift"; path = "JustLayout/JustLayout/JustLayout+Constraints.swift"; sourceTree = "<group>"; };
+		7D9FCECF23C4FFD6FCA534290EE08B12 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		802803EDBD54344A7ADE6313305F0F99 /* ParamountDialogs.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ParamountDialogs.modulemap; sourceTree = "<group>"; };
+		853DC9205C60C706451F384A911676F5 /* Kingfisher-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Kingfisher-dummy.m"; sourceTree = "<group>"; };
+		8B40499B47E1CEECD0BD304AABB561F8 /* Image.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Image.swift; path = Sources/Image.swift; sourceTree = "<group>"; };
+		8DA21B780977F5BB74853F7C6831FB9C /* JustLayout+Size.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JustLayout+Size.swift"; path = "JustLayout/JustLayout/JustLayout+Size.swift"; sourceTree = "<group>"; };
+		8EB3E6B66DC63EBB83C4EBB1F5504C58 /* KingfisherOptionsInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherOptionsInfo.swift; path = Sources/KingfisherOptionsInfo.swift; sourceTree = "<group>"; };
+		8FA40B15C5C49159F1FBC1E096B8032B /* Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Kingfisher.swift; path = Sources/Kingfisher.swift; sourceTree = "<group>"; };
+		8FBB3A94941CA76113958CCD690C5760 /* Pods-ParamountDialogsSample-Sample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ParamountDialogsSample-Sample-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		98B4DE6FDF0DD7638E9AB592F73383B7 /* ImageModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageModifier.swift; path = Sources/ImageModifier.swift; sourceTree = "<group>"; };
+		9D955DEA644B392CDB3BC8B9D879B490 /* JustLayout+Fill.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JustLayout+Fill.swift"; path = "JustLayout/JustLayout/JustLayout+Fill.swift"; sourceTree = "<group>"; };
+		9DB72A8902D7A21C189EFDC235156008 /* Resource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Sources/Resource.swift; sourceTree = "<group>"; };
+		9F7A2C57D2796EF6D0B81AE5A2522E98 /* JustLayout.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JustLayout.xcconfig; sourceTree = "<group>"; };
+		A6EF4F1AF65E430DD75828DE5A702C0F /* JustLayout+Stacks.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JustLayout+Stacks.swift"; path = "JustLayout/JustLayout/JustLayout+Stacks.swift"; sourceTree = "<group>"; };
+		ACED31E73CFB9258CFC02DA3542E8974 /* Pods-ParamountDialogsSample-Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ParamountDialogsSample-Sample.debug.xcconfig"; sourceTree = "<group>"; };
+		AE9D2BA16F21BFF7E2853E0463BEB4ED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		B057037A1B31896A214A91E2A9C6FA64 /* JustLayout+Hierarchy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JustLayout+Hierarchy.swift"; path = "JustLayout/JustLayout/JustLayout+Hierarchy.swift"; sourceTree = "<group>"; };
+		B9F8A75E04EF1073119933DEDAF41E9E /* Placeholder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Placeholder.swift; path = Sources/Placeholder.swift; sourceTree = "<group>"; };
+		BDE70FFE81E322259A4F546C77F52274 /* JustLayout+Percentage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JustLayout+Percentage.swift"; path = "JustLayout/JustLayout/JustLayout+Percentage.swift"; sourceTree = "<group>"; };
+		BF073834E982EAD3CC7AB0FD0155C264 /* ThreadHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ThreadHelper.swift; path = Sources/ThreadHelper.swift; sourceTree = "<group>"; };
+		C786D8BBEE3E73B1F5D19681A6FEAA9D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C959EE0795614B64D54FAADBB7C2EA7A /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBA668751BE773B35E093330BE5B11DC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0F1FB7709FC7452F9D5590536F3B87A /* JustLayout+Content.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JustLayout+Content.swift"; path = "JustLayout/JustLayout/JustLayout+Content.swift"; sourceTree = "<group>"; };
+		D1CF5BBD2B0BA93291BF6EB1FA254478 /* SystemSounds.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SystemSounds.xcconfig; sourceTree = "<group>"; };
+		D39C027C398533695BAF11849EAC2A9C /* AnimatedImageView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnimatedImageView.swift; path = Sources/AnimatedImageView.swift; sourceTree = "<group>"; };
+		D4CB359B227D1E27444C5D6D9BD51C15 /* JustLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JustLayout-prefix.pch"; sourceTree = "<group>"; };
+		D64A946CDCA453D85E942FC26E0DD2C7 /* Pods-ParamountDialogsSample-Sample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-ParamountDialogsSample-Sample.modulemap"; sourceTree = "<group>"; };
+		D6C1325C34B14F7AD940F51331438B28 /* RequestModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestModifier.swift; path = Sources/RequestModifier.swift; sourceTree = "<group>"; };
+		D976882DFEAF0C73867EF6CA1B80679B /* KingfisherManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KingfisherManager.swift; path = Sources/KingfisherManager.swift; sourceTree = "<group>"; };
+		DCAED7B9DEA0B3F926ED2F4332622044 /* JustLayout+Equation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JustLayout+Equation.swift"; path = "JustLayout/JustLayout/JustLayout+Equation.swift"; sourceTree = "<group>"; };
+		E049879D561A36618D76651C5DC2B438 /* Kingfisher.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Kingfisher.xcconfig; sourceTree = "<group>"; };
+		E44EF03B8AFC9AEC5B7C91483FC72F8A /* CacheSerializer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CacheSerializer.swift; path = Sources/CacheSerializer.swift; sourceTree = "<group>"; };
+		E7D48888D6B741BBD9A148D5F5E54EC9 /* ImagePrefetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePrefetcher.swift; path = Sources/ImagePrefetcher.swift; sourceTree = "<group>"; };
+		EDC2416CD6ECBCD1239B926EB529C746 /* SystemSounds.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SystemSounds.h; path = SystemSounds/SystemSounds/SystemSounds.h; sourceTree = "<group>"; };
+		F38022A7B6CF8F4E815E0976DEC2C9C1 /* ParamountDialogs-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ParamountDialogs-umbrella.h"; sourceTree = "<group>"; };
+		F42B3290F18C9EE03CE46849AE4D0539 /* ImageProcessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProcessor.swift; path = Sources/ImageProcessor.swift; sourceTree = "<group>"; };
+		F6611B3C3E30F6D7F6E8F16D3758FA40 /* JustLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JustLayout-dummy.m"; sourceTree = "<group>"; };
+		F769D7FDDF56AE337FCC29289E450F23 /* JustLayout+Center.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JustLayout+Center.swift"; path = "JustLayout/JustLayout/JustLayout+Center.swift"; sourceTree = "<group>"; };
+		F7A296E13F1A4E5389B3BD8A10A58912 /* Kingfisher.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Kingfisher.modulemap; sourceTree = "<group>"; };
+		F947F1BB4F6FC1E62E2A13FB3E099CF1 /* Pods-ParamountDialogsSample-Sample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ParamountDialogsSample-Sample-acknowledgements.plist"; sourceTree = "<group>"; };
+		F9AAACE611D57BFAEB1A50D1821C5D3B /* SystemSoundsDefine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SystemSoundsDefine.swift; path = SystemSounds/SystemSounds/SystemSoundsDefine.swift; sourceTree = "<group>"; };
+		FC22D2143C3B5BA8A5C93D2FC3BABFEE /* JustLayout+LayoutAnchors.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JustLayout+LayoutAnchors.swift"; path = "JustLayout/JustLayout/JustLayout+LayoutAnchors.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18AC203B2D773AC7B8BFB1500B922C81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D10B9D59FED897578F73B0C671F9BA4 /* AudioToolbox.framework in Frameworks */,
+				ECAC5AD8CD0EEA427EE4EC1E394D1B68 /* Foundation.framework in Frameworks */,
+				325C2428C38876B5796BF2AB8A6DA693 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F75D7196D8B5E6ACD092C2B848FFBBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B4A57B23792218B56FC969EDEBBDE2A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4059EDB29AED9C0F99ADAD07BC6580E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCB5DFBCD0A885A8C4AD3F882364FC12 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C080FA2501559DD9097E68801D249E86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0EE9881740163937EFE24588892F9FF /* Foundation.framework in Frameworks */,
+				1D450BC4952DBED990CCF95CC8D4FFA8 /* JustLayout.framework in Frameworks */,
+				3D02E144653B5BBEE501B19281BF453E /* Kingfisher.framework in Frameworks */,
+				0E5D8D859302BAF4431C6004132BCFDF /* SystemSounds.framework in Frameworks */,
+				81C3579B75481084C6998DD4DA3E4656 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0B9722E352CF90C920286E6F029D3C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52416A6AC7387ECACCC45596498D96AD /* CFNetwork.framework in Frameworks */,
+				0CA6357476373C221D44C498AA1D65FE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0BDEEE8381B8C915433B5C5BC5287F24 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0C367B18D68D8EF05666A64524F4F80D /* JustLayout.framework */,
+				08CC97B79C832573A028D232A8AD6222 /* Kingfisher.framework */,
+				4AA3633423E9031FDFC94406996E40AC /* ParamountDialogs.framework */,
+				00E5AAE7BC8BF380284042AC22A205D4 /* Pods_ParamountDialogsSample_Sample.framework */,
+				360C2FD7548B3751FAAC05794AA8AE86 /* SystemSounds.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0EE3D6566EE7A6B5C16A35556F26BA64 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A6BE19A49D5DC2E5318111CA6727BBB7 /* JustLayout */,
+				AA6FBF273DEBC5383DB8E137BEF38F36 /* Kingfisher */,
+				EA8FEAB40046BA796D3E2EBC3C4B89C4 /* SystemSounds */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		0EF8925254DCC4B930FD1C8CEFF7E754 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				421B954FB9A28392D87C1C7BA0D20198 /* Info.plist */,
+				3FB03BB4B481861E2ECCAF29609960FA /* SystemSounds.modulemap */,
+				D1CF5BBD2B0BA93291BF6EB1FA254478 /* SystemSounds.xcconfig */,
+				153DA6B6E7C11EFA28A57218C7413CA4 /* SystemSounds-dummy.m */,
+				086F9697409B867A5979F5166E270514 /* SystemSounds-prefix.pch */,
+				443B025378314FA734062FFC1699E819 /* SystemSounds-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SystemSounds";
+			sourceTree = "<group>";
+		};
+		1B5741E578B2051A02D9D6BF1D3C0EE5 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				92B1E7C804561003A5631BE930E40801 /* ParamountDialogs */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		1E75B9799F88CA362A2915A1997305F3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CBA668751BE773B35E093330BE5B11DC /* Info.plist */,
+				802803EDBD54344A7ADE6313305F0F99 /* ParamountDialogs.modulemap */,
+				156D6AB714D6FFB5A5B8764CF6884EAC /* ParamountDialogs.xcconfig */,
+				65F34C64FC3A74341471AA78781A74D3 /* ParamountDialogs-dummy.m */,
+				7A86F90E2CA51B6CCEA11B2E802A49BE /* ParamountDialogs-prefix.pch */,
+				F38022A7B6CF8F4E815E0976DEC2C9C1 /* ParamountDialogs-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Sample/Pods/Target Support Files/ParamountDialogs";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				1B5741E578B2051A02D9D6BF1D3C0EE5 /* Development Pods */,
+				CF4BD6064C983ECE22C1B097E43262CD /* Frameworks */,
+				0EE3D6566EE7A6B5C16A35556F26BA64 /* Pods */,
+				0BDEEE8381B8C915433B5C5BC5287F24 /* Products */,
+				EA703F9FB293E2C95DB62F65967B0CC1 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8E6DAA9900B043B2DF72D4202893430B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C786D8BBEE3E73B1F5D19681A6FEAA9D /* Info.plist */,
+				F7A296E13F1A4E5389B3BD8A10A58912 /* Kingfisher.modulemap */,
+				E049879D561A36618D76651C5DC2B438 /* Kingfisher.xcconfig */,
+				853DC9205C60C706451F384A911676F5 /* Kingfisher-dummy.m */,
+				5B3E38353F1D8A173707F34A7D75FBE4 /* Kingfisher-prefix.pch */,
+				7B102BF6B71EB590EB28E675B59B6D0D /* Kingfisher-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Kingfisher";
+			sourceTree = "<group>";
+		};
+		92B1E7C804561003A5631BE930E40801 /* ParamountDialogs */ = {
+			isa = PBXGroup;
+			children = (
+				0867D79276D038CDC9D3E045E6B65D76 /* ParamountDialogs.swift */,
+				1E75B9799F88CA362A2915A1997305F3 /* Support Files */,
+			);
+			name = ParamountDialogs;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		A6BE19A49D5DC2E5318111CA6727BBB7 /* JustLayout */ = {
+			isa = PBXGroup;
+			children = (
+				0DBB154BC561E578B173B9035F875A69 /* JustLayout+Alignment.swift */,
+				F769D7FDDF56AE337FCC29289E450F23 /* JustLayout+Center.swift */,
+				7BBFFC26297F2A9A2AD890F7FCFEC173 /* JustLayout+Constraints.swift */,
+				D0F1FB7709FC7452F9D5590536F3B87A /* JustLayout+Content.swift */,
+				DCAED7B9DEA0B3F926ED2F4332622044 /* JustLayout+Equation.swift */,
+				9D955DEA644B392CDB3BC8B9D879B490 /* JustLayout+Fill.swift */,
+				4184F997C8B28ABDD7E5D42EBE47D113 /* JustLayout+FlexibleMargin.swift */,
+				114F35F3A3AB563017D73DD402171CC3 /* JustLayout+GetConstraint.swift */,
+				2DA04182E872969A3DBCC289A1FE524E /* JustLayout+HeightOperators.swift */,
+				B057037A1B31896A214A91E2A9C6FA64 /* JustLayout+Hierarchy.swift */,
+				FC22D2143C3B5BA8A5C93D2FC3BABFEE /* JustLayout+LayoutAnchors.swift */,
+				0B323C26C92DCC22A51A8001D36D4CD5 /* JustLayout+Operators.swift */,
+				BDE70FFE81E322259A4F546C77F52274 /* JustLayout+Percentage.swift */,
+				4EEC61715BCDC1F6FF3E3046C116C79A /* JustLayout+Position.swift */,
+				8DA21B780977F5BB74853F7C6831FB9C /* JustLayout+Size.swift */,
+				A6EF4F1AF65E430DD75828DE5A702C0F /* JustLayout+Stacks.swift */,
+				0DB963E1A9E64CBA9AB0B8CC6068D520 /* JustLayout+Style.swift */,
+				79A260E9CC08561E5DE4112DBB07698D /* JustLayout+Tap.swift */,
+				F239BB82AB0491BABD375DE46FE9DED0 /* Support Files */,
+			);
+			name = JustLayout;
+			path = JustLayout;
+			sourceTree = "<group>";
+		};
+		AA6FBF273DEBC5383DB8E137BEF38F36 /* Kingfisher */ = {
+			isa = PBXGroup;
+			children = (
+				D39C027C398533695BAF11849EAC2A9C /* AnimatedImageView.swift */,
+				E44EF03B8AFC9AEC5B7C91483FC72F8A /* CacheSerializer.swift */,
+				4D8BDFB4E9D53E2D8240B504EB750BE0 /* Filter.swift */,
+				3C86C84F13D6B0D6F50FCF0BB507EBC2 /* FormatIndicatedCacheSerializer.swift */,
+				8B40499B47E1CEECD0BD304AABB561F8 /* Image.swift */,
+				273F72710D8A0D1F1C1C5F1B13765BB2 /* ImageCache.swift */,
+				65C06E3A434EBF1D8896FFBD70F28D3A /* ImageDownloader.swift */,
+				98B4DE6FDF0DD7638E9AB592F73383B7 /* ImageModifier.swift */,
+				E7D48888D6B741BBD9A148D5F5E54EC9 /* ImagePrefetcher.swift */,
+				F42B3290F18C9EE03CE46849AE4D0539 /* ImageProcessor.swift */,
+				140CBA960DC5E34501F026DD8D5F7EC5 /* ImageTransition.swift */,
+				585506A1EF9AAD93982D2D5D67AD8997 /* ImageView+Kingfisher.swift */,
+				7B097723BD1F46B0F58717B387FC5231 /* Indicator.swift */,
+				669939E0196EAEB62E4C3757F80DF17A /* Kingfisher.h */,
+				8FA40B15C5C49159F1FBC1E096B8032B /* Kingfisher.swift */,
+				D976882DFEAF0C73867EF6CA1B80679B /* KingfisherManager.swift */,
+				8EB3E6B66DC63EBB83C4EBB1F5504C58 /* KingfisherOptionsInfo.swift */,
+				B9F8A75E04EF1073119933DEDAF41E9E /* Placeholder.swift */,
+				D6C1325C34B14F7AD940F51331438B28 /* RequestModifier.swift */,
+				9DB72A8902D7A21C189EFDC235156008 /* Resource.swift */,
+				1481520CAAEFCE60454619901E2643B9 /* String+MD5.swift */,
+				BF073834E982EAD3CC7AB0FD0155C264 /* ThreadHelper.swift */,
+				45C9C626BCF0F683EEE77D0A0E1833DD /* UIButton+Kingfisher.swift */,
+				8E6DAA9900B043B2DF72D4202893430B /* Support Files */,
+			);
+			name = Kingfisher;
+			path = Kingfisher;
+			sourceTree = "<group>";
+		};
+		CF4BD6064C983ECE22C1B097E43262CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				456A6FAFE2DA8EAF3B4F49040814D0B8 /* JustLayout.framework */,
+				C959EE0795614B64D54FAADBB7C2EA7A /* Kingfisher.framework */,
+				4D05899C4626511CB2C87F83459663B7 /* SystemSounds.framework */,
+				FE05E5AB492BF3AFBFDBD8BF95656571 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA703F9FB293E2C95DB62F65967B0CC1 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FD0753B53B87414EFC682EA26410B7CB /* Pods-ParamountDialogsSample-Sample */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		EA8FEAB40046BA796D3E2EBC3C4B89C4 /* SystemSounds */ = {
+			isa = PBXGroup;
+			children = (
+				EDC2416CD6ECBCD1239B926EB529C746 /* SystemSounds.h */,
+				4095C47E1FDA0827558611F9E86CA4C3 /* SystemSounds.swift */,
+				F9AAACE611D57BFAEB1A50D1821C5D3B /* SystemSoundsDefine.swift */,
+				0EF8925254DCC4B930FD1C8CEFF7E754 /* Support Files */,
+			);
+			name = SystemSounds;
+			path = SystemSounds;
+			sourceTree = "<group>";
+		};
+		F239BB82AB0491BABD375DE46FE9DED0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0B776543616780BD26F9929248FC4A3E /* Info.plist */,
+				0B7BBA8B9B0F29BBAA6D6D41D8B1EF66 /* JustLayout.modulemap */,
+				9F7A2C57D2796EF6D0B81AE5A2522E98 /* JustLayout.xcconfig */,
+				F6611B3C3E30F6D7F6E8F16D3758FA40 /* JustLayout-dummy.m */,
+				D4CB359B227D1E27444C5D6D9BD51C15 /* JustLayout-prefix.pch */,
+				4F854C038FE44C9F11CCFCBF60667FD6 /* JustLayout-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/JustLayout";
+			sourceTree = "<group>";
+		};
+		FD0753B53B87414EFC682EA26410B7CB /* Pods-ParamountDialogsSample-Sample */ = {
+			isa = PBXGroup;
+			children = (
+				0A82D3561DCABD49BC4E17BB195CA545 /* Info.plist */,
+				D64A946CDCA453D85E942FC26E0DD2C7 /* Pods-ParamountDialogsSample-Sample.modulemap */,
+				70C5F77271C140DD264D3C2F70EDD6DA /* Pods-ParamountDialogsSample-Sample-acknowledgements.markdown */,
+				F947F1BB4F6FC1E62E2A13FB3E099CF1 /* Pods-ParamountDialogsSample-Sample-acknowledgements.plist */,
+				8FBB3A94941CA76113958CCD690C5760 /* Pods-ParamountDialogsSample-Sample-dummy.m */,
+				07F04ADE628EE04650C860C59822B7CB /* Pods-ParamountDialogsSample-Sample-frameworks.sh */,
+				10EF72E52F382B390DFA215335E9C204 /* Pods-ParamountDialogsSample-Sample-resources.sh */,
+				68EC7D3F284211FAEECEC6A09ADBB0CC /* Pods-ParamountDialogsSample-Sample-umbrella.h */,
+				ACED31E73CFB9258CFC02DA3542E8974 /* Pods-ParamountDialogsSample-Sample.debug.xcconfig */,
+				53969E4EAE491C337D135F329F2040AB /* Pods-ParamountDialogsSample-Sample.release.xcconfig */,
+			);
+			name = "Pods-ParamountDialogsSample-Sample";
+			path = "Target Support Files/Pods-ParamountDialogsSample-Sample";
+			sourceTree = "<group>";
+		};
+		FE05E5AB492BF3AFBFDBD8BF95656571 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				16C034ED92FC6BB306607A499DFD9541 /* AudioToolbox.framework */,
+				7D9FCECF23C4FFD6FCA534290EE08B12 /* CFNetwork.framework */,
+				05F59B91E027614C0AA0C5E104818B7E /* Foundation.framework */,
+				AE9D2BA16F21BFF7E2853E0463BEB4ED /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		41DF1E21CD8BDDDDDB699ED502A93041 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3679502F8CE7727D9980F831552726F3 /* ParamountDialogs-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B2EA2B9BD9C408B4C7A96F80A66E11D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDFD702D62E681124E27514FD02A047C /* Pods-ParamountDialogsSample-Sample-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84676F7D46FF521291CDEB2AB04A454C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F288ED3641B2B4775884C462AE377E6 /* Kingfisher-umbrella.h in Headers */,
+				5B5D8AE167BD8E304CE474A9B8DBA2B4 /* Kingfisher.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85C5CCF045B787F26ABB0362FED8A24B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFAFC488C514F054C3496F7D67A531CE /* SystemSounds-umbrella.h in Headers */,
+				CF4EA0CB001D2A20EC7C3F7B2A8C11C7 /* SystemSounds.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB6327F884D0066218819BACFBC980B1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				361B44E73A7E63364FC77000F3426D0C /* JustLayout-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4A418320DEBBCB96BA68876EFEA8F780 /* Pods-ParamountDialogsSample-Sample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB6CE7282A67CF64E8060B14CF4F3016 /* Build configuration list for PBXNativeTarget "Pods-ParamountDialogsSample-Sample" */;
+			buildPhases = (
+				107891DE3A4282F8EB4EDC8EE871D9DF /* Sources */,
+				3F75D7196D8B5E6ACD092C2B848FFBBD /* Frameworks */,
+				5B2EA2B9BD9C408B4C7A96F80A66E11D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9BA080FF528ACDF252EB77F89A13D585 /* PBXTargetDependency */,
+				C24918791B67BB6B3EFF00AA08F599F5 /* PBXTargetDependency */,
+				2042B5A2BECC309BC6AE1AF278BC42AC /* PBXTargetDependency */,
+				A57B556BE6A9148C53A28717B00C43C1 /* PBXTargetDependency */,
+			);
+			name = "Pods-ParamountDialogsSample-Sample";
+			productName = "Pods-ParamountDialogsSample-Sample";
+			productReference = 00E5AAE7BC8BF380284042AC22A205D4 /* Pods_ParamountDialogsSample_Sample.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6F712943B3C5592E82604940D11CE08A /* Kingfisher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C1E4CEFB2390CBE75E70BAC20F44BBF /* Build configuration list for PBXNativeTarget "Kingfisher" */;
+			buildPhases = (
+				1B0C4DBE28D2E9C5B9585DFADB8C3463 /* Sources */,
+				C0B9722E352CF90C920286E6F029D3C0 /* Frameworks */,
+				84676F7D46FF521291CDEB2AB04A454C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Kingfisher;
+			productName = Kingfisher;
+			productReference = 08CC97B79C832573A028D232A8AD6222 /* Kingfisher.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		81A2B7463E492A2AF2A634FFB6023012 /* JustLayout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 410E2274BEB479FF173B311D4DD8B3D0 /* Build configuration list for PBXNativeTarget "JustLayout" */;
+			buildPhases = (
+				04AD8612AFF1C55F9F808A27F8ABC93B /* Sources */,
+				4059EDB29AED9C0F99ADAD07BC6580E0 /* Frameworks */,
+				CB6327F884D0066218819BACFBC980B1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JustLayout;
+			productName = JustLayout;
+			productReference = 0C367B18D68D8EF05666A64524F4F80D /* JustLayout.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A3D2293C311778C386997B7331F19AFB /* ParamountDialogs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A15EC2ABEA0509C7A7CDCED5F364695 /* Build configuration list for PBXNativeTarget "ParamountDialogs" */;
+			buildPhases = (
+				1E209C79280B6C0B6122A7E9F7D446C2 /* Sources */,
+				C080FA2501559DD9097E68801D249E86 /* Frameworks */,
+				41DF1E21CD8BDDDDDB699ED502A93041 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				56F578E97358E70043D2184B4BA257A1 /* PBXTargetDependency */,
+				C8B4DF00009B83995CB4C4E858BDF600 /* PBXTargetDependency */,
+				9E8707A479126F1DFADD3795530819F8 /* PBXTargetDependency */,
+			);
+			name = ParamountDialogs;
+			productName = ParamountDialogs;
+			productReference = 4AA3633423E9031FDFC94406996E40AC /* ParamountDialogs.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D3A6AC3617E2EF41FED3E702DC5C6711 /* SystemSounds */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6208461DE580C298D58FF3F48AD321F8 /* Build configuration list for PBXNativeTarget "SystemSounds" */;
+			buildPhases = (
+				DF8DCF27D162DB1E4FF42C34F49E8372 /* Sources */,
+				18AC203B2D773AC7B8BFB1500B922C81 /* Frameworks */,
+				85C5CCF045B787F26ABB0362FED8A24B /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SystemSounds;
+			productName = SystemSounds;
+			productReference = 360C2FD7548B3751FAAC05794AA8AE86 /* SystemSounds.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 0BDEEE8381B8C915433B5C5BC5287F24 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				81A2B7463E492A2AF2A634FFB6023012 /* JustLayout */,
+				6F712943B3C5592E82604940D11CE08A /* Kingfisher */,
+				A3D2293C311778C386997B7331F19AFB /* ParamountDialogs */,
+				4A418320DEBBCB96BA68876EFEA8F780 /* Pods-ParamountDialogsSample-Sample */,
+				D3A6AC3617E2EF41FED3E702DC5C6711 /* SystemSounds */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04AD8612AFF1C55F9F808A27F8ABC93B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA8DD2AF3A58C38C16CD19AFBCC737C2 /* JustLayout+Alignment.swift in Sources */,
+				E4FCECD782CC9367809A657FCFCD6752 /* JustLayout+Center.swift in Sources */,
+				602D2F1E8514F79D49AE39A464505B3C /* JustLayout+Constraints.swift in Sources */,
+				143BD83AED1ADE63FDC14F0F5891DA33 /* JustLayout+Content.swift in Sources */,
+				3C241042720DC51BA8C9C6DC26FBA3AE /* JustLayout+Equation.swift in Sources */,
+				EEEB66479B23A78A4A7E354076130C74 /* JustLayout+Fill.swift in Sources */,
+				ED5B035D3DB1189C596451CD3E1B8F1B /* JustLayout+FlexibleMargin.swift in Sources */,
+				84DF7FD4B3C61FDC7D3CCCD930E4EB1A /* JustLayout+GetConstraint.swift in Sources */,
+				45E86682C30CC2EFD5E6DC71397CA4FB /* JustLayout+HeightOperators.swift in Sources */,
+				489BE425D1FE27F5D5A0A2942C88D46B /* JustLayout+Hierarchy.swift in Sources */,
+				9F514567AF869EAEC68B7065A24F2A4F /* JustLayout+LayoutAnchors.swift in Sources */,
+				13C26D96CEF10AF83C58D71FC636994D /* JustLayout+Operators.swift in Sources */,
+				976ED67263B71B5F711936D48D819BD1 /* JustLayout+Percentage.swift in Sources */,
+				5FA9DF89636B35137894D84E635C4A43 /* JustLayout+Position.swift in Sources */,
+				0E723F499C7F623D8FF64736F5DA7EC1 /* JustLayout+Size.swift in Sources */,
+				865800A2AA6D7FC4521D0E7DE8C47359 /* JustLayout+Stacks.swift in Sources */,
+				A4BAE6A69D9D700EF1A3E54FD0A5FA25 /* JustLayout+Style.swift in Sources */,
+				150A07A98D041813BD989BE025A009F1 /* JustLayout+Tap.swift in Sources */,
+				C90D3CF596E6790F53ECE06BB1239C3D /* JustLayout-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		107891DE3A4282F8EB4EDC8EE871D9DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2138BC6472178CB9F5718768C6A6B169 /* Pods-ParamountDialogsSample-Sample-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1B0C4DBE28D2E9C5B9585DFADB8C3463 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B637B7B9935ABFC735902CECF7E97CAD /* AnimatedImageView.swift in Sources */,
+				ED37B360D5C446703ECC48CD58016677 /* CacheSerializer.swift in Sources */,
+				842ECE2E8FD88BD099EB6FD501CE2403 /* Filter.swift in Sources */,
+				6E8F597BA9D8AD09E372CD356C0823D1 /* FormatIndicatedCacheSerializer.swift in Sources */,
+				BF70BFC0EF94A2882F73B4CCE24C618A /* Image.swift in Sources */,
+				DDBE670AD152272D156B19824C4927FF /* ImageCache.swift in Sources */,
+				CCD511112C75259DEC04089982E6AC70 /* ImageDownloader.swift in Sources */,
+				280AF380471897EA10E1922CD21B7644 /* ImageModifier.swift in Sources */,
+				F4E509F392A027ABAD2922148C7B4A2E /* ImagePrefetcher.swift in Sources */,
+				EDA8958AE6DFEF723B2E9DEBC9091ABC /* ImageProcessor.swift in Sources */,
+				432D8294961EC6165DC9DE9AFFD0284C /* ImageTransition.swift in Sources */,
+				D6FBE881555E633D746F301C86124BF6 /* ImageView+Kingfisher.swift in Sources */,
+				CE95507AB14AFEB978899E5A65A8B5C2 /* Indicator.swift in Sources */,
+				1C3B11A652C2AF1235E6981DBBBDA1D5 /* Kingfisher-dummy.m in Sources */,
+				9BC0F89A57E1B4DF575CC736E880FAEA /* Kingfisher.swift in Sources */,
+				6EDCE4FA7F9B0129F1B33CA64765A95C /* KingfisherManager.swift in Sources */,
+				4A79E904C80B13D4DBBE7D7A0A0B4774 /* KingfisherOptionsInfo.swift in Sources */,
+				797F5AB366EDB6E6206BBAA899E9EE1C /* Placeholder.swift in Sources */,
+				84403CC062BDF9A84C7241756167B959 /* RequestModifier.swift in Sources */,
+				EE7B8515907147560F5332F0BC83C481 /* Resource.swift in Sources */,
+				AEB21C6FD808C527505F4C65844533B8 /* String+MD5.swift in Sources */,
+				56283C4D397C058D245EB1E2F5B67C41 /* ThreadHelper.swift in Sources */,
+				E7C28DF1EC12E603BCAE58B587E626BE /* UIButton+Kingfisher.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E209C79280B6C0B6122A7E9F7D446C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2187B3EAB50BE0D4AC21E5A8C3CA793D /* ParamountDialogs-dummy.m in Sources */,
+				24534D0B053D1ED69FDB45468DE8867E /* ParamountDialogs.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF8DCF27D162DB1E4FF42C34F49E8372 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F44F2787E90354F7CFBFD1790220E28D /* SystemSounds-dummy.m in Sources */,
+				92D630EA1F79D47A935DA11DA3B441F2 /* SystemSounds.swift in Sources */,
+				5B528595C4DEAADA2A85CD855EA92DC5 /* SystemSoundsDefine.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2042B5A2BECC309BC6AE1AF278BC42AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ParamountDialogs;
+			target = A3D2293C311778C386997B7331F19AFB /* ParamountDialogs */;
+			targetProxy = CCB25C81904AED2C355808BBDAB5985C /* PBXContainerItemProxy */;
+		};
+		56F578E97358E70043D2184B4BA257A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JustLayout;
+			target = 81A2B7463E492A2AF2A634FFB6023012 /* JustLayout */;
+			targetProxy = 8E7889D6FB9CDC5F01FD476CF45CFD6E /* PBXContainerItemProxy */;
+		};
+		9BA080FF528ACDF252EB77F89A13D585 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = JustLayout;
+			target = 81A2B7463E492A2AF2A634FFB6023012 /* JustLayout */;
+			targetProxy = 595DC0163502ADB11CFD049487308F5D /* PBXContainerItemProxy */;
+		};
+		9E8707A479126F1DFADD3795530819F8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SystemSounds;
+			target = D3A6AC3617E2EF41FED3E702DC5C6711 /* SystemSounds */;
+			targetProxy = 1771B5F048E76D73A1C98D7ADACD0274 /* PBXContainerItemProxy */;
+		};
+		A57B556BE6A9148C53A28717B00C43C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SystemSounds;
+			target = D3A6AC3617E2EF41FED3E702DC5C6711 /* SystemSounds */;
+			targetProxy = 73AB21B66EE79277114CD108DE4001E3 /* PBXContainerItemProxy */;
+		};
+		C24918791B67BB6B3EFF00AA08F599F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Kingfisher;
+			target = 6F712943B3C5592E82604940D11CE08A /* Kingfisher */;
+			targetProxy = C44B0E69ED9843783066A4F6F8F3DC38 /* PBXContainerItemProxy */;
+		};
+		C8B4DF00009B83995CB4C4E858BDF600 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Kingfisher;
+			target = 6F712943B3C5592E82604940D11CE08A /* Kingfisher */;
+			targetProxy = D91936C32C21FFF1C2A0BD518CFE16D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		44F3DCEC3824A7996619CB408D226A9E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1CF5BBD2B0BA93291BF6EB1FA254478 /* SystemSounds.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SystemSounds/SystemSounds-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SystemSounds/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SystemSounds/SystemSounds.modulemap";
+				PRODUCT_NAME = SystemSounds;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4D20661303A7BA290BAD9F2DCE310CE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 156D6AB714D6FFB5A5B8764CF6884EAC /* ParamountDialogs.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ParamountDialogs/ParamountDialogs-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ParamountDialogs/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ParamountDialogs/ParamountDialogs.modulemap";
+				PRODUCT_NAME = ParamountDialogs;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		576C583E88A92DC2279EB3BFC2CA8A6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E049879D561A36618D76651C5DC2B438 /* Kingfisher.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Kingfisher/Kingfisher-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Kingfisher/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Kingfisher/Kingfisher.modulemap";
+				PRODUCT_NAME = Kingfisher;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6F9224530522DD3C735EC96CF142642E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		7945BD4779A7B3CC74E85CC5FC884ED9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACED31E73CFB9258CFC02DA3542E8974 /* Pods-ParamountDialogsSample-Sample.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ParamountDialogsSample-Sample/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ParamountDialogsSample-Sample/Pods-ParamountDialogsSample-Sample.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ParamountDialogsSample_Sample;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ADFD2A6AF68CB45DEA159C7C9FD0B34B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 156D6AB714D6FFB5A5B8764CF6884EAC /* ParamountDialogs.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ParamountDialogs/ParamountDialogs-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ParamountDialogs/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/ParamountDialogs/ParamountDialogs.modulemap";
+				PRODUCT_NAME = ParamountDialogs;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B57951D085A1B98A97F8A1062A5E5C5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		D9374E59875A4160A9499C771678D720 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53969E4EAE491C337D135F329F2040AB /* Pods-ParamountDialogsSample-Sample.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ParamountDialogsSample-Sample/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ParamountDialogsSample-Sample/Pods-ParamountDialogsSample-Sample.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_ParamountDialogsSample_Sample;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DA309DB408726F9C647F5B80DE9FEE0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1CF5BBD2B0BA93291BF6EB1FA254478 /* SystemSounds.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SystemSounds/SystemSounds-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SystemSounds/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SystemSounds/SystemSounds.modulemap";
+				PRODUCT_NAME = SystemSounds;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E8652F35BF322A3957D0F62338910B79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E049879D561A36618D76651C5DC2B438 /* Kingfisher.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Kingfisher/Kingfisher-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Kingfisher/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Kingfisher/Kingfisher.modulemap";
+				PRODUCT_NAME = Kingfisher;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F6EDCD588CE39ED419A78BAF458E2B4B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F7A2C57D2796EF6D0B81AE5A2522E98 /* JustLayout.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JustLayout/JustLayout-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JustLayout/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JustLayout/JustLayout.modulemap";
+				PRODUCT_NAME = JustLayout;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FC778B4417C3C6A3B8DD3B3FA9DF1788 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F7A2C57D2796EF6D0B81AE5A2522E98 /* JustLayout.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JustLayout/JustLayout-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JustLayout/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JustLayout/JustLayout.modulemap";
+				PRODUCT_NAME = JustLayout;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B57951D085A1B98A97F8A1062A5E5C5B /* Debug */,
+				6F9224530522DD3C735EC96CF142642E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		410E2274BEB479FF173B311D4DD8B3D0 /* Build configuration list for PBXNativeTarget "JustLayout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6EDCD588CE39ED419A78BAF458E2B4B /* Debug */,
+				FC778B4417C3C6A3B8DD3B3FA9DF1788 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6208461DE580C298D58FF3F48AD321F8 /* Build configuration list for PBXNativeTarget "SystemSounds" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA309DB408726F9C647F5B80DE9FEE0C /* Debug */,
+				44F3DCEC3824A7996619CB408D226A9E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A15EC2ABEA0509C7A7CDCED5F364695 /* Build configuration list for PBXNativeTarget "ParamountDialogs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D20661303A7BA290BAD9F2DCE310CE8 /* Debug */,
+				ADFD2A6AF68CB45DEA159C7C9FD0B34B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C1E4CEFB2390CBE75E70BAC20F44BBF /* Build configuration list for PBXNativeTarget "Kingfisher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				576C583E88A92DC2279EB3BFC2CA8A6C /* Debug */,
+				E8652F35BF322A3957D0F62338910B79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB6CE7282A67CF64E8060B14CF4F3016 /* Build configuration list for PBXNativeTarget "Pods-ParamountDialogsSample-Sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7945BD4779A7B3CC74E85CC5FC884ED9 /* Debug */,
+				D9374E59875A4160A9499C771678D720 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
