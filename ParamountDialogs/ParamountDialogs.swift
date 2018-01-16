@@ -465,7 +465,6 @@ open class ParamountDialog: UIViewController {
     private func private_show(animated: Bool, to toView: UIView?) {
         guard let toView = toView else {
             fatalError("Nil view to show")
-            return
         }
         if toView.bounds.width >= kDialogMarginWidth {
             if toView.bounds.width > kMaxDialogWidth {
