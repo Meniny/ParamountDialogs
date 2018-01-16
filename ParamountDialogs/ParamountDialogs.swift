@@ -139,6 +139,10 @@ open class ParamountDialog: UIViewController {
     /// The title text
     open var titleText: String = "Notification"
     
+    /// The container of message container
+    open private(set) var messageScroller: UIScrollView = UIScrollView.init()
+    /// The container of message label
+    open private(set) var messageContainer: UIView = UIView.init()
     /// The message label
     open private(set) var messageLabel: ParamountLabel = ParamountLabel.init()
     /// The message text
@@ -239,14 +243,28 @@ open class ParamountDialog: UIViewController {
         self.backgroundView.topAttribute == self.avatarContainerView.centerYAttribute
         self.backgroundView.left(0).right(0).bottom(0)
         
-        self.headerView.translates(subViews: self.titleLabel, self.messageLabel)
+        self.headerView.translates(subViews: self.titleLabel, self.messageScroller)
         self.headerView.layout(
             0,
             |-8-self.titleLabel.height(>=0)-8-|,
             8,
-            |-8-self.messageLabel.height(>=0)-8-|,
+            |-8-self.messageScroller-8-|,
             0
         )
+        
+        self.messageScroller.style { (scroll) in
+            scroll.showsVerticalScrollIndicator = true
+            scroll.showsHorizontalScrollIndicator = false
+            scroll.bounces = false
+        }
+        
+        self.messageScroller.translates(subViews: self.messageContainer)
+        self.messageContainer.left(0).right(0).top(0).bottom(0)
+        
+        self.messageContainer.translates(subViews: self.messageLabel)
+        self.messageLabel.left(0).top(0).right(0).bottom(0).height(>=0)
+        self.messageContainer.widthAttribute == self.messageScroller.widthAttribute
+//        self.messageScroller.height(<=100)//Attribute == self.messageContainer.heightAttribute
         
         [self.titleLabel, self.messageLabel].style { (l) in
             l.textAlignment = .center
@@ -475,6 +493,7 @@ open class ParamountDialog: UIViewController {
         } else {
             self.superWidth = kMaxDialogWidth
         }
+        
         self.loadViewIfNeeded()
         
         toView.translates(subViews: self.view)
@@ -484,7 +503,7 @@ open class ParamountDialog: UIViewController {
             0
         )
         
-        self.view.updateConstraints()
+        self.updateMessageScroller()
         
         if animated {
             self.containerView.transform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
@@ -494,6 +513,23 @@ open class ParamountDialog: UIViewController {
                 self?.view.alpha = 1
                 }, completion: { (f) in
             })
+        }
+    }
+    
+    open var maxLineCount: UInt = 8
+    
+    private func updateMessageScroller() {
+        self.view.updateConstraints()
+        self.view.layoutIfNeeded()
+        
+        self.messageScroller.contentSize = self.messageLabel.bounds.size
+        
+        let maxHeight = messageLabel.font.lineHeight * CGFloat(self.maxLineCount)
+        
+        if self.messageScroller.contentSize.height >= maxHeight {
+            self.messageScroller.height(maxHeight)
+        } else {
+            self.messageScroller.height(self.messageScroller.contentSize.height)
         }
     }
     
@@ -536,8 +572,8 @@ open class ParamountLabel: UILabel {
     
     private lazy var longpress: UILongPressGestureRecognizer = {
         let long = UILongPressGestureRecognizer.init(target: self, action: #selector(showMenu))
-        long.cancelsTouchesInView = true
-        long.numberOfTapsRequired = 1
+        long.cancelsTouchesInView = false
+//        long.numberOfTapsRequired = 1
         return long
     }()
     

@@ -63,10 +63,10 @@ class ViewController: UIViewController {
         while true {
             let index = Int(arc4random_uniform(UInt32(self.contents.count)))
             let name = self.contents[index]
-            if !result.contains(name) {
+//            if !result.contains(name) {
                 result.append(name)
-            }
-            if result.count >= 4 {
+//            }
+            if result.count >= 100 {
                 break
             }
         }
