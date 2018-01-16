@@ -648,7 +648,7 @@ open class ParamountButton: UIButton {
         self.transform = CGAffineTransform.init(scaleX: 1, y: 1)
         self.scale(down: { [weak self] in
             self?.transform = CGAffineTransform.init(scaleX: 0.95, y: 0.95)
-        }) { [weak self] in
+        }) {
         }
     }
     
@@ -656,7 +656,7 @@ open class ParamountButton: UIButton {
     private func touchUpOutsideAction() {
         self.scale(down: { [weak self] in
             self?.transform = CGAffineTransform.init(scaleX: 1, y: 1)
-        }) { [weak self] in
+        }) {
         }
     }
     
@@ -673,7 +673,7 @@ open class ParamountButton: UIButton {
     }
     
     private func scale(down: @escaping () -> Void, reset: @escaping () -> Void) {
-        UIView.animate(withDuration: 0.1, animations: down) { [weak self] (f) in
+        UIView.animate(withDuration: 0.1, animations: down) { (f) in
             if f {
                 reset()
             }
