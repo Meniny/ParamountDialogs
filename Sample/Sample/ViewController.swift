@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.masksToBounds = true
-        imageView.kf.setImage(with: URL.init(string: "https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/68dd54ca-60cf-4ef7-898b-26d7cbe48ec7/10-dithering-opt.jpg"))
+        imageView.kf.setImage(with: icon)
         
         imageView.isUserInteractionEnabled = true
         
@@ -39,6 +39,12 @@ class ViewController: UIViewController {
         tapGesture.cancelsTouchesInView = true
         tapGesture.numberOfTouchesRequired = 1
         imageView.addGestureRecognizer(tapGesture)
+        
+        let loading = ParamountDialog.show(loading: "Loading...", message: "Please wait 5 seconds.", icon: .remote(icon))
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {// [weak loading] in
+            loading.hide()
+        }
     }
     
     @objc
@@ -80,13 +86,15 @@ class ViewController: UIViewController {
         let message = m ?? "Welcome, \(randomNames().joined(separator: ", "))!"
         var buttons: ParamountButtonInfoSet = []
         if queue {
-            buttons.append(.filled("Show Another"))
+            buttons.append(.filled("Show Action Sheet"))
         }
         buttons.append(.bordered("Cancel"))
         
         let textFields: ParamountTextFieldInfoSet
         if queue {
-            textFields = []
+            textFields = [
+                TextFieldType.normal("Elias Abel", placeholder: "Author", keyboard: .emailAddress),
+            ]
         } else {
             textFields = [
                 TextFieldType.normal("admin@meniny.cn", placeholder: "Username/E-mail", keyboard: .emailAddress),
@@ -104,7 +112,7 @@ class ViewController: UIViewController {
                                           textFields: textFields,
                                           sound: .endRecord,
                                           blur: true) { [weak self] (d, btn) in
-                                            if btn.title(for: .normal) == "Show Another" {
+                                            if btn.title(for: .normal) == "Show Action Sheet" {
                                                 self?.actionSheet(message)
                                             }
                                             d.hide()

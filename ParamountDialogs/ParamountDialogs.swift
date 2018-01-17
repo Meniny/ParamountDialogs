@@ -68,6 +68,7 @@ import Kingfisher
 import SystemSounds
 
 private var kMaxDialogWidth: CGFloat = 280
+private var kMinDialogWidth: CGFloat = 280
 private var kDialogMarginWidth: CGFloat = 16
 private let kDuration: TimeInterval = 0.25
 private var kDialogSemaphore = DispatchSemaphore.init(value: 1)
@@ -288,6 +289,8 @@ open class ParamountDialog: UIViewController {
     open private(set) var footerView: UIView = UIView.init()
     /// The container view of other contents
     open private(set) var contentView: UIView = UIView.init()
+    /// The custom view to display
+    open private(set) var customView: UIView?
     
     /// A set of button configurations
     open private(set) var buttonInfoSet: ParamountButtonInfoSet = []
@@ -302,6 +305,7 @@ open class ParamountDialog: UIViewController {
     /// The text fields array
     open private(set) var textFields: [ParamountTextField] = []
     
+    private var hasDefaultClosureButton = true
     
     /// If blur background
     open var blurBackground: Bool = true
@@ -338,7 +342,7 @@ open class ParamountDialog: UIViewController {
         self.blurView.top(0).bottom(0).left(0).right(0)
         self.blurView.isHidden = !self.blurBackground
         
-        self.containerView.width(self.containerWidth)
+        self.containerView.width(<=kMaxDialogWidth).width(>=kMinDialogWidth).width(self.containerWidth)
         
         self.containerView.translates(subViews: self.backgroundView,
                                       self.avatarContainerView,
@@ -433,9 +437,7 @@ open class ParamountDialog: UIViewController {
         
         self.avatarView.setImage(self.avatar, placeholder: self.avatarPlaceholder)
         
-        if self.buttonInfoSet.isEmpty {
-            self.buttonInfoSet.append(.filled("Close"))
-        }
+        self.contentView.centerHorizontally()
         
         for field in self.textFieldInfoSet {
             self.addField(field.text, placeholder: field.placeholder, keyboardType: field.keyboardType, security: field.isSecureTextEntry)
@@ -448,6 +450,25 @@ open class ParamountDialog: UIViewController {
             
             NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
             NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        }
+        
+        if let custom = self.customView {
+            let lastSubView = self.contentView.subviews.last
+            self.contentView.translates(subViews: custom)
+            if let last = lastSubView {
+                custom.topAttribute == last.bottomAttribute + 8
+                custom.left(8).right(8).bottom(0)
+            } else {
+                self.contentView.layout(
+                    0,
+                    |-8-custom-8-|,
+                    0
+                )
+            }
+        }
+        
+        if self.hasDefaultClosureButton && self.buttonInfoSet.isEmpty {
+            self.buttonInfoSet.append(.filled("Close"))
         }
         
         for btn in self.buttonInfoSet {
@@ -644,7 +665,9 @@ open class ParamountDialog: UIViewController {
                          icon: ImageType,
                          placeholder: UIImage? = nil,
                          buttons buttonSet: ParamountButtonInfoSet,
+                         defaultButton: Bool = true,
                          textFields fieldSet: ParamountTextFieldInfoSet = [],
+                         customView custom: UIView? = nil,
                          sound: SystemSounds.IDs? = nil,
                          blur: Bool = true,
                          action closure: @escaping ParamountDialogActionClosure = ParamountDialogDefaultActionClosure) -> ParamountDialog {
@@ -656,6 +679,8 @@ open class ParamountDialog: UIViewController {
         dialog.avatarPlaceholder = placeholder
         dialog.buttonInfoSet.append(contentsOf: buttonSet)
         dialog.textFieldInfoSet.append(contentsOf: fieldSet)
+        dialog.hasDefaultClosureButton = defaultButton
+        dialog.customView = custom
         dialog.genericSoundID = sound
         dialog.blurBackground = blur
         dialog.actionClosure = closure
@@ -685,7 +710,9 @@ open class ParamountDialog: UIViewController {
                          icon: ImageType,
                          placeholder: UIImage? = nil,
                          buttons buttonSet: ParamountButtonInfoSet,
+                         defaultButton: Bool = true,
                          textFields fieldSet: ParamountTextFieldInfoSet = [],
+                         customView custom: UIView? = nil,
                          sound: SystemSounds.IDs? = nil,
                          blur: Bool = true,
                          to toView: UIView? = nil,
@@ -698,13 +725,37 @@ open class ParamountDialog: UIViewController {
                                           icon: icon,
                                           placeholder: placeholder,
                                           buttons: buttonSet,
+                                          defaultButton: defaultButton,
                                           textFields: fieldSet,
+                                          customView: custom,
                                           sound: sound,
                                           blur: blur,
                                           action: closure)
         
         dialog.show(animated: true, to: toView)
         return dialog
+    }
+    
+    @discardableResult
+    open class func show(loading titleKey: String,
+                         message messageKey: String,
+                         alignment: NSTextAlignment = .center,
+                         icon: ImageType,
+                         placeholder: UIImage? = nil,
+                         buttons buttonSet: ParamountButtonInfoSet = [],
+                         sound: SystemSounds.IDs? = nil,
+                         blur: Bool = true,
+                         to toView: UIView? = nil,
+                         action closure: @escaping ParamountDialogActionClosure = ParamountDialogDefaultActionClosure) -> ParamountDialog {
+        
+        let indicatorContainer = UIView.init()
+        let indicator = UIActivityIndicatorView.init(activityIndicatorStyle: .gray)
+        indicatorContainer.translates(subViews: indicator)
+        indicatorContainer.height(50)
+        indicator.centerInContainer()
+        indicator.startAnimating()
+        
+        return self.show(.alert, title: titleKey, message: messageKey, alignment: alignment, icon: icon, placeholder: placeholder, buttons: buttonSet, defaultButton: false, textFields: [], customView: indicatorContainer, sound: sound, blur: blur, to: toView, action: closure)
     }
     
     open private(set) var shouldWaitInQueue: Bool = true
@@ -756,9 +807,9 @@ open class ParamountDialog: UIViewController {
         self.updateMessageScroller()
         
         if animated {
-            let completion: (Bool) -> Void = { [weak self] (f) in
+            let completion: (Bool) -> Void = { (f) in
                 if f {
-                    self?.textFields.first?.becomeFirstResponder()
+                    self.textFields.first?.becomeFirstResponder()
                 }
             }
             
@@ -825,10 +876,10 @@ open class ParamountDialog: UIViewController {
         }
         if animated {
             self.view.alpha = 1
-            let completion: (Bool) -> Void = { [weak self] (f) in
+            let completion: (Bool) -> Void = { (f) in
                 if f {
-                    self?.view.removeFromSuperview()
-                    if self?.shouldWaitInQueue == true {
+                    self.view.removeFromSuperview()
+                    if self.shouldWaitInQueue == true {
                         kDialogSemaphore.signal()
                     }
                 }

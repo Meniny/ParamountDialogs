@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "ParamountDialogs"
-  s.version          = "1.2.0"
+  s.version          = "1.3.0"
   s.summary          = "A delightful dialog view for iOS in Swift"
 
 # This description is used to generate tags and improve search results.
