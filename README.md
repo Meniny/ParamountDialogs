@@ -2,7 +2,7 @@
 
 `ParamountDialogs` is a delightful dialog view for iOS in Swift.
 
-![https://i.loli.net/2018/01/16/5a5dc2a655189.jpg](https://i.loli.net/2018/01/16/5a5dc2a655189.jpg)
+![5a5ef8b5c4bdf.jpg](https://i.loli.net/2018/01/17/5a5ef8b5c4bdf.jpg)
 
 ## Requirements
 
