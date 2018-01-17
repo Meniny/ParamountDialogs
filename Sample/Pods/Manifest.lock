@@ -1,7 +1,7 @@
 PODS:
-  - JustLayout (1.2.0)
+  - JustLayout (1.2.1)
   - Kingfisher (4.6.1)
-  - ParamountDialogs (1.0.3):
+  - ParamountDialogs (1.1.0):
     - JustLayout
     - Kingfisher
     - SystemSounds
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  JustLayout: 2e0b2cd0126f107b410f349e9abc78e62ecf2dc2
+  JustLayout: 3015f2e0d923f20cfa64ebf8830e2288e199486e
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
-  ParamountDialogs: 16c7d5cbae0b8eeb8cdf450a7a0d041c5ffb1eb9
+  ParamountDialogs: 1927ece205abbbbaeb635c266cae5bcb564d5e9e
   SystemSounds: 7e3dc5eaca4b5bbca3f1e6e82796489a8407f474
 
 PODFILE CHECKSUM: f94a59a0decdf756db7e327f1050e1c62dd806fa

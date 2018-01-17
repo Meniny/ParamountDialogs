@@ -78,11 +78,22 @@ class ViewController: UIViewController {
         
         let icon = URL.init(string: "https://www.google.co.jp/logos/doodles/2018/katy-jurados-94th-birthday-5562889569042432-l.png")
         let message = m ?? "Welcome, \(randomNames().joined(separator: ", "))!"
-        var buttons: ParamountButtonSet = []
+        
+        var buttons: ParamountButtonInfoSet = []
         if queue {
-            buttons.append(("Show Another", .filled))
+            buttons.append(.filled("Show Another"))
         }
-        buttons.append(("Cancel", .borderd))
+        buttons.append(.bordered("Cancel"))
+        
+        let textFields: ParamountTextFieldInfoSet
+        if queue {
+            textFields = []
+        } else {
+            textFields = [
+                TextFieldType.normal("admin@meniny.cn", placeholder: "Username/E-mail", keyboard: .emailAddress),
+                TextFieldType.security("12345678", placeholder: "Passcode", keyboard: .asciiCapable),
+            ]
+        }
         
         let dialog = ParamountDialog.make(dialog: queue ? "Dialog \(self.counter)" : "Avatar Tapped",
                                           message: message,
@@ -90,6 +101,7 @@ class ViewController: UIViewController {
                                           icon: .remote(icon),
                                           placeholder: nil,
                                           buttons: buttons,
+                                          textFields: textFields,
                                           sound: .endRecord,
                                           blur: true) { [weak self] (d, btn) in
                                             if btn.title(for: .normal) == "Show Another" {

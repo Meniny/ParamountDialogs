@@ -77,15 +77,6 @@ public typealias ParamountButtonTapActionClosure = (_ button: ParamountButton) -
 public typealias ParamountDialogActionClosure = (_ dialog: ParamountDialog, _ tapped: ParamountButton) -> Swift.Void
 public typealias ParamountAvatarActionClosure = (_ dialog: ParamountDialog, _ avatar: UIImageView) -> Swift.Void
 
-public typealias ParamountButtonSet = [(title: String, style: ParamountButton.DisplayStyle)]
-
-public var defaultParamountDialogActionClosure: ParamountDialogActionClosure {
-    let c: ParamountDialogActionClosure =  { d, b in
-        d.hide()
-    }
-    return c
-}
-
 /// The types of icon
 ///
 /// - image: `UIImage` object
@@ -149,6 +140,100 @@ public enum ImageType: Equatable {
     }
 }
 
+public enum TextFieldType: Equatable {
+    case normal(String?, placeholder: String?, keyboard: UIKeyboardType)
+    case security(String?, placeholder: String?, keyboard: UIKeyboardType)
+    
+    public static func ==(lhs: TextFieldType, rhs: TextFieldType) -> Bool {
+        switch (lhs, rhs) {
+        case let (.normal(tl, pl, kl), .normal(tr, pr, kr)):
+            return tl == tr && pl == pr && kl == kr
+        case let (.security(tl, pl, kl), .security(tr, pr, kr)):
+            return tl == tr && pl == pr && kl == kr
+        default: return false
+        }
+    }
+    
+    public var isSecureTextEntry: Bool {
+        switch self {
+        case .normal(_, _, _):
+            return false
+        case .security(_, _, _):
+            return true
+        }
+    }
+    
+    public var text: String? {
+        switch self {
+        case .normal(let t, _, _):
+            return t
+        case .security(let t, _, _):
+            return t
+        }
+    }
+    
+    public var placeholder: String? {
+        switch self {
+        case .normal(_, let p, _):
+            return p
+        case .security(_ , let p, _):
+            return p
+        }
+    }
+    
+    public var keyboardType: UIKeyboardType {
+        switch self {
+        case .normal(_, _, let k):
+            return k
+        case .security(_, _, let k):
+            return k
+        }
+    }
+}
+
+public enum ButtonType: Equatable {
+    case filled(String)
+    case bordered(String)
+    
+    public static func ==(lhs: ButtonType, rhs: ButtonType) -> Bool {
+        switch (lhs, rhs) {
+        case let (.filled(tl), .filled(tr)):
+            return tl == tr
+        case let (.bordered(tl), .bordered(tr)):
+            return tl == tr
+        default: return false
+        }
+    }
+    
+    public var title: String {
+        switch self {
+        case .filled(let t):
+            return t
+        case .bordered(let t):
+            return t
+        }
+    }
+    
+    public var style: ParamountButton.DisplayStyle {
+        switch self {
+        case .filled(_):
+            return .filled
+        case .bordered(_):
+            return .bordered
+        }
+    }
+}
+
+public typealias ParamountButtonInfoSet = [ButtonType]
+public typealias ParamountTextFieldInfoSet = [TextFieldType]
+
+public var ParamountDialogDefaultActionClosure: ParamountDialogActionClosure {
+    let c: ParamountDialogActionClosure =  { d, b in
+        d.hide()
+    }
+    return c
+}
+
 /// The dialog view used in Paramount
 open class ParamountDialog: UIViewController {
     
@@ -199,13 +284,18 @@ open class ParamountDialog: UIViewController {
     open private(set) var contentView: UIView = UIView.init()
     
     /// A set of button configurations
-    open private(set) var buttonSet: ParamountButtonSet = []
+    open private(set) var buttonInfoSet: ParamountButtonInfoSet = []
     /// The buttons array
     open private(set) var buttons: [ParamountButton] = []
     /// The button tap action
     open private(set) var actionClosure: ParamountDialogActionClosure?
-    
     open private(set) var genericSoundID: SystemSounds.IDs?
+    
+    /// A set of text filed configurations
+    open private(set) var textFieldInfoSet: ParamountTextFieldInfoSet = []
+    /// The text fields array
+    open private(set) var textFields: [ParamountTextField] = []
+    
     
     /// If blur background
     open var blurBackground: Bool = true
@@ -237,7 +327,7 @@ open class ParamountDialog: UIViewController {
         self.blurView.isHidden = !self.blurBackground
         
         let containerWidth = fmin(fmin(UIScreen.main.bounds.width, UIScreen.main.bounds.height), self.superWidth)
-        self.containerView.centerInContainer().width(containerWidth).bottom(>=8).top(>=8)
+        self.containerView.centerInContainer().width(containerWidth)//.bottom(>=8).top(>=8)
         
         self.containerView.translates(subViews: self.backgroundView,
                                       self.avatarContainerView,
@@ -332,12 +422,25 @@ open class ParamountDialog: UIViewController {
         
         self.avatarView.setImage(self.avatar, placeholder: self.avatarPlaceholder)
         
-        if self.buttonSet.isEmpty {
-            self.buttonSet.append(("Close", .filled))
+        if self.buttonInfoSet.isEmpty {
+            self.buttonInfoSet.append(.filled("Close"))
         }
         
-        for (btn, style) in self.buttonSet {
-            self.addAction(btn, style: style, sound: self.genericSoundID, onTap: { (b) in
+        for field in self.textFieldInfoSet {
+            self.addField(field.text, placeholder: field.placeholder, keyboardType: field.keyboardType, security: field.isSecureTextEntry)
+        }
+        self.textFields.last?.bottom(8)
+        
+        if !self.textFields.isEmpty {
+            let dismissKeyboardTap = UITapGestureRecognizer.init(target: self, action: #selector(dismissKeyboard))
+            self.view.addGestureRecognizer(dismissKeyboardTap)
+            
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        }
+        
+        for btn in self.buttonInfoSet {
+            self.addAction(btn.title, style: btn.style, sound: self.genericSoundID, onTap: { (b) in
 //                guard let strongSelf = self else {
 //                    return
 //                }
@@ -345,6 +448,52 @@ open class ParamountDialog: UIViewController {
             })
         }
         self.buttons.last?.bottom(0)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc
+    private func keyboardWillShow(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+            let keyboardframe = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect else {
+            return
+        }
+        let mainViewHeight = self.view.bounds.height
+        let mainViewHalf = mainViewHeight * 0.5
+        let keyboradHeight = keyboardframe.height
+        let mainLeftHeight = mainViewHeight - keyboradHeight
+        let containerHeight = self.containerView.bounds.height
+        UIView.animate(withDuration: 0.25) { [weak self] in
+            let centerY: CGFloat
+            if mainLeftHeight >= containerHeight {
+                 centerY = mainViewHalf - mainLeftHeight * 0.5
+            } else {
+                if keyboradHeight <= mainViewHalf {
+                    centerY = mainViewHalf - (mainLeftHeight - containerHeight * 0.5)
+                } else {
+                    centerY = (keyboradHeight - mainViewHalf) + containerHeight * 0.5 + 8
+                }
+            }
+            
+            self?.containerView.centerYConstraint?.constant = -fabs(centerY)
+            self?.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc
+    private func keyboardWillHide(_ notification: Notification) {
+        UIView.animate(withDuration: 0.25) { [weak self] in
+            self?.containerView.centerYConstraint?.constant = 0
+            self?.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc
+    private func dismissKeyboard() {
+        self.resignFirstResponder()
+        self.containerView.endEditing(true)
     }
     
     @objc
@@ -358,6 +507,35 @@ open class ParamountDialog: UIViewController {
         return self
     }
     
+    @discardableResult
+    private func addField(_ text: String?, placeholder: String?, keyboardType: UIKeyboardType, security: Bool) -> ParamountTextField {
+        let textField = ParamountTextField.init(frame: .zero)
+        textField.text = text
+        textField.placeholder = placeholder
+        textField.keyboardType = keyboardType
+        textField.borderStyle = .roundedRect
+        textField.clearButtonMode = .whileEditing
+        textField.isSecureTextEntry = security
+        
+        let lastField = self.contentView.subviews.last
+        self.contentView.translates(subViews: textField)
+        
+        let fieldHeight: CGFloat = 49
+        let marginV: CGFloat = 8
+        let marginH: CGFloat = 8
+        
+        textField.left(marginH).right(marginH).height(fieldHeight)
+        
+        if let last = lastField {
+            textField.topAttribute == last.bottomAttribute + marginV
+        } else {
+            textField.top(marginV)
+        }
+        self.textFields.append(textField)
+        
+        return textField
+    }
+    
     /// Add an button to dialog, called before shown
     ///
     /// - Parameters:
@@ -367,7 +545,7 @@ open class ParamountDialog: UIViewController {
     /// - Returns: The button itself
     @discardableResult
     private func addAction(_ actionTitle: String,
-                        style: ParamountButton.DisplayStyle = .borderd,
+                        style: ParamountButton.DisplayStyle = .bordered,
                         sound: SystemSounds.IDs? = nil,
                         onTap closure: @escaping ParamountButtonTapActionClosure) -> ParamountButton {
         let button = ParamountButton.init(title: actionTitle, style: style, sound: sound, closure: closure)
@@ -408,7 +586,8 @@ open class ParamountDialog: UIViewController {
     ///   - alignment: Message text alignment
     ///   - icon: The icon image
     ///   - placeholder: The placeholder image
-    ///   - buttonArray: The buttons
+    ///   - buttonSet: The buttons
+    ///   - fieldSet: The text fields
     ///   - sound: The sound be played when button tapped
     ///   - blur: If blur background
     ///   - closure: Button tapped action
@@ -419,17 +598,19 @@ open class ParamountDialog: UIViewController {
                          alignment: NSTextAlignment = .center,
                          icon: ImageType,
                          placeholder: UIImage? = nil,
-                         buttons buttonArray: ParamountButtonSet,
+                         buttons buttonSet: ParamountButtonInfoSet,
+                         textFields fieldSet: ParamountTextFieldInfoSet = [],
                          sound: SystemSounds.IDs? = nil,
                          blur: Bool = true,
-                         action closure: @escaping ParamountDialogActionClosure = defaultParamountDialogActionClosure) -> ParamountDialog {
+                         action closure: @escaping ParamountDialogActionClosure = ParamountDialogDefaultActionClosure) -> ParamountDialog {
         let dialog = ParamountDialog.init()
         dialog.titleText = NSLocalizedString(titleKey, comment: "")
         dialog.messageText = NSLocalizedString(messageKey, comment: "")
         dialog.messageAlignment = alignment
         dialog.avatar = icon
         dialog.avatarPlaceholder = placeholder
-        dialog.buttonSet.append(contentsOf: buttonArray)
+        dialog.buttonInfoSet.append(contentsOf: buttonSet)
+        dialog.textFieldInfoSet.append(contentsOf: fieldSet)
         dialog.genericSoundID = sound
         dialog.blurBackground = blur
         dialog.actionClosure = closure
@@ -444,7 +625,8 @@ open class ParamountDialog: UIViewController {
     ///   - alignment: Message text alignment
     ///   - icon: The icon image
     ///   - placeholder: The placeholder image
-    ///   - buttonArray: The buttons
+    ///   - buttonSet: The buttons
+    ///   - fieldSet: The text fields
     ///   - sound: The sound be played when button tapped
     ///   - blur: If blur background
     ///   - closure: Button tapped action
@@ -455,18 +637,20 @@ open class ParamountDialog: UIViewController {
                          alignment: NSTextAlignment = .center,
                          icon: ImageType,
                          placeholder: UIImage? = nil,
-                         buttons buttonArray: ParamountButtonSet,
+                         buttons buttonSet: ParamountButtonInfoSet,
+                         textFields fieldSet: ParamountTextFieldInfoSet = [],
                          sound: SystemSounds.IDs? = nil,
                          blur: Bool = true,
                          to toView: UIView? = nil,
-                         action closure: @escaping ParamountDialogActionClosure = defaultParamountDialogActionClosure) -> ParamountDialog {
+                         action closure: @escaping ParamountDialogActionClosure = ParamountDialogDefaultActionClosure) -> ParamountDialog {
         
         let dialog = ParamountDialog.make(dialog: titleKey,
                                           message: messageKey,
                                           alignment: alignment,
                                           icon: icon,
                                           placeholder: placeholder,
-                                          buttons: buttonArray,
+                                          buttons: buttonSet,
+                                          textFields: fieldSet,
                                           sound: sound,
                                           blur: blur,
                                           action: closure)
@@ -529,7 +713,10 @@ open class ParamountDialog: UIViewController {
             UIView.animate(withDuration: kDuration, animations: { [weak self] in
                 self?.containerView.transform = CGAffineTransform.init(scaleX: 1, y: 1)
                 self?.view.alpha = 1
-                }, completion: { (f) in
+                }, completion: { [weak self] (f) in
+                    if f {
+                        self?.textFields.first?.becomeFirstResponder()
+                    }
             })
         }
     }
@@ -644,11 +831,15 @@ open class ParamountLabel: UILabel {
     }
 }
 
+open class ParamountTextField: UITextField {
+    
+}
+
 /// The button for `ParamountDialog`
 open class ParamountButton: UIButton {
     
     public enum DisplayStyle {
-        case filled, borderd
+        case filled, bordered
         
         fileprivate static let mainColor: UIColor = UIColor(red: 0.66, green: 0.64, blue: 0.91, alpha: 1.00)
         fileprivate static let secondaryColor: UIColor = UIColor.white
@@ -661,14 +852,14 @@ open class ParamountButton: UIButton {
         }
         
         fileprivate var backgroundColor: UIColor {
-            if self == .borderd {
+            if self == .bordered {
                 return DisplayStyle.secondaryColor
             }
             return DisplayStyle.mainColor
         }
         
         fileprivate var borderColor: UIColor {
-            if self == .borderd {
+            if self == .bordered {
                 return self.titleColor
             }
             return UIColor.clear
@@ -680,7 +871,7 @@ open class ParamountButton: UIButton {
     open private(set) var soundID: SystemSounds.IDs? = nil
     
     public init(title: String,
-                style: ParamountButton.DisplayStyle = .borderd,
+                style: ParamountButton.DisplayStyle = .bordered,
                 sound: SystemSounds.IDs? = nil,
                 closure: @escaping ParamountButtonTapActionClosure) {
         self.style = style
