@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "ParamountDialogs"
-  s.version          = "1.3.0"
+  s.version          = "1.3.1"
   s.summary          = "A delightful dialog view for iOS in Swift"
 
 # This description is used to generate tags and improve search results.
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.license          = 'MIT'
   s.author           = { "Meniny" => "Meniny@qq.com" }
   s.source           = { :git => "https://github.com/Meniny/ParamountDialogs.git", :tag => s.version.to_s }
-  s.social_media_url = 'http://meniny.cn/'
+  s.social_media_url = 'https://meniny.cn/'
 
   s.ios.deployment_target = '9.0'
 

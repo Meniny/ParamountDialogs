@@ -737,6 +737,39 @@ open class ParamountDialog: UIViewController {
     }
     
     @discardableResult
+    open class func make(loading titleKey: String,
+                         message messageKey: String,
+                         alignment: NSTextAlignment = .center,
+                         icon: ImageType,
+                         placeholder: UIImage? = nil,
+                         buttons buttonSet: ParamountButtonInfoSet = [],
+                         sound: SystemSounds.IDs? = nil,
+                         blur: Bool = true,
+                         action closure: @escaping ParamountDialogActionClosure = ParamountDialogDefaultActionClosure) -> ParamountDialog {
+        
+        let indicatorContainer = UIView.init()
+        let indicator = UIActivityIndicatorView.init(activityIndicatorStyle: .gray)
+        indicatorContainer.translates(subViews: indicator)
+        indicatorContainer.height(50)
+        indicator.centerInContainer()
+        indicator.startAnimating()
+        
+        return self.make(.alert,
+                         title: titleKey,
+                         message: messageKey,
+                         alignment: alignment,
+                         icon: icon,
+                         placeholder: placeholder,
+                         buttons: buttonSet,
+                         defaultButton: false,
+                         textFields: [],
+                         customView: indicatorContainer,
+                         sound: sound,
+                         blur: blur,
+                         action: closure)
+    }
+    
+    @discardableResult
     open class func show(loading titleKey: String,
                          message messageKey: String,
                          alignment: NSTextAlignment = .center,
@@ -748,14 +781,17 @@ open class ParamountDialog: UIViewController {
                          to toView: UIView? = nil,
                          action closure: @escaping ParamountDialogActionClosure = ParamountDialogDefaultActionClosure) -> ParamountDialog {
         
-        let indicatorContainer = UIView.init()
-        let indicator = UIActivityIndicatorView.init(activityIndicatorStyle: .gray)
-        indicatorContainer.translates(subViews: indicator)
-        indicatorContainer.height(50)
-        indicator.centerInContainer()
-        indicator.startAnimating()
-        
-        return self.show(.alert, title: titleKey, message: messageKey, alignment: alignment, icon: icon, placeholder: placeholder, buttons: buttonSet, defaultButton: false, textFields: [], customView: indicatorContainer, sound: sound, blur: blur, to: toView, action: closure)
+        let loading = self.make(loading: titleKey,
+                                message: messageKey,
+                                alignment: alignment,
+                                icon: icon,
+                                placeholder: placeholder,
+                                buttons: buttonSet,
+                                sound: sound,
+                                blur: blur,
+                                action: closure)
+        loading.show(animated: true, to: toView, wait: true)
+        return loading
     }
     
     open private(set) var shouldWaitInQueue: Bool = true
