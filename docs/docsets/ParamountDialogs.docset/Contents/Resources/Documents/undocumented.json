@@ -2,329 +2,280 @@
   "warnings": [
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 89,
+      "line": 88,
       "symbol": "ImageType.object",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 90,
+      "line": 89,
       "symbol": "ImageType.named",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 91,
+      "line": 90,
       "symbol": "ImageType.path",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 92,
+      "line": 91,
       "symbol": "ImageType.remote",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 93,
+      "line": 92,
       "symbol": "ImageType.nil",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 106,
+      "line": 105,
       "symbol": "ImageType.source",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 144,
+      "line": 143,
       "symbol": "TextFieldType",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 145,
+      "line": 144,
       "symbol": "TextFieldType.normal",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 146,
-      "symbol": "TextFieldType.secure",
+      "line": 145,
+      "symbol": "TextFieldType.security",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 158,
-      "symbol": "TextFieldType.isSecureTextEntry",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 167,
+      "line": 157,
       "symbol": "TextFieldType.text",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 176,
+      "line": 166,
       "symbol": "TextFieldType.placeholder",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 185,
+      "line": 175,
       "symbol": "TextFieldType.keyboardType",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 195,
+      "line": 185,
       "symbol": "ButtonType",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 196,
+      "line": 186,
       "symbol": "ButtonType.filled",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 197,
+      "line": 187,
       "symbol": "ButtonType.bordered",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 209,
+      "line": 199,
       "symbol": "ButtonType.title",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 218,
+      "line": 208,
       "symbol": "ButtonType.style",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 231,
+      "line": 221,
       "symbol": "ParamountDialogDefaultActionClosure",
       "symbol_kind": "source.lang.swift.decl.var.global",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 241,
-      "symbol": "ParamountDialog.PreferredStyle",
-      "symbol_kind": "source.lang.swift.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 242,
-      "symbol": "ParamountDialog.PreferredStyle.actionSheet",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 242,
-      "symbol": "ParamountDialog.PreferredStyle.alert",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 245,
-      "symbol": "ParamountDialog.preferredStyle",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 266,
+      "line": 250,
       "symbol": "ParamountDialog.blurView",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 301,
+      "line": 283,
       "symbol": "ParamountDialog.genericSoundID",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 318,
+      "line": 298,
       "symbol": "ParamountDialog.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 323,
+      "line": 303,
       "symbol": "ParamountDialog.viewDidLoad()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 569,
+      "line": 442,
       "symbol": "ParamountDialog.onAvatarTapped(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 740,
-      "symbol": "ParamountDialog.make(loading:message:alignment:icon:placeholder:buttons:sound:blur:action:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 773,
-      "symbol": "ParamountDialog.show(loading:message:alignment:icon:placeholder:buttons:sound:blur:to:action:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 797,
+      "line": 597,
       "symbol": "ParamountDialog.shouldWaitInQueue",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 885,
+      "line": 656,
       "symbol": "ParamountDialog.maxLineCount",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 962,
+      "line": 722,
       "symbol": "ParamountLabel.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 967,
+      "line": 727,
       "symbol": "ParamountLabel.init(frame:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 972,
+      "line": 732,
       "symbol": "ParamountLabel.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 986,
+      "line": 746,
       "symbol": "ParamountLabel.canPerformAction(_:withSender:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 993,
+      "line": 753,
       "symbol": "ParamountLabel.canBecomeFirstResponder",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 1000,
+      "line": 760,
       "symbol": "ParamountLabel.copy(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 1006,
+      "line": 766,
       "symbol": "ParamountTextField",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 1013,
+      "line": 773,
       "symbol": "ParamountButton.DisplayStyle",
       "symbol_kind": "source.lang.swift.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 1014,
+      "line": 774,
       "symbol": "ParamountButton.DisplayStyle.bordered",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 1014,
+      "line": 774,
       "symbol": "ParamountButton.DisplayStyle.filled",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 1041,
+      "line": 801,
       "symbol": "ParamountButton.actionClosure",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 1042,
+      "line": 802,
       "symbol": "ParamountButton.style",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 1043,
+      "line": 803,
       "symbol": "ParamountButton.soundID",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 1045,
+      "line": 805,
       "symbol": "ParamountButton.init(title:style:sound:closure:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/elias/Documents/GitHub/ParamountDialogs/ParamountDialogs/ParamountDialogs.swift",
-      "line": 1099,
+      "line": 859,
       "symbol": "ParamountButton.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
