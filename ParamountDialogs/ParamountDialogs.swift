@@ -79,6 +79,13 @@ public typealias ParamountAvatarActionClosure = (_ dialog: ParamountDialog, _ av
 
 public typealias ParamountButtonSet = [(title: String, style: ParamountButton.DisplayStyle)]
 
+public var defaultParamountDialogActionClosure: ParamountDialogActionClosure {
+    let c: ParamountDialogActionClosure =  { d, b in
+        d.hide()
+    }
+    return c
+}
+
 /// The types of icon
 ///
 /// - image: `UIImage` object
@@ -86,12 +93,23 @@ public typealias ParamountButtonSet = [(title: String, style: ParamountButton.Di
 /// - path: Image path in main bundle
 /// - remote: Remote image URL
 /// - `nil`: Just nil
-public enum ImageType {
+public enum ImageType: Equatable {
     case object(UIImage?)
     case named(String)
     case path(URL?)
     case remote(URL?)
     case `nil`
+    
+    public static func ==(lhs: ImageType, rhs: ImageType) -> Bool {
+        switch (lhs, rhs) {
+        case let (.object(a), .object(b)): return a == b
+        case let (.named(a), .named(b)): return a == b
+        case let (.path(a), .path(b)): return a == b
+        case let (.remote(a), .remote(b)): return a == b
+        case (.nil, .nil): return true
+        default: return false
+        }
+    }
     
     public var source: Any? {
         switch self {
@@ -404,7 +422,7 @@ open class ParamountDialog: UIViewController {
                          buttons buttonArray: ParamountButtonSet,
                          sound: SystemSounds.IDs? = nil,
                          blur: Bool = true,
-                         action closure: @escaping ParamountDialogActionClosure) -> ParamountDialog {
+                         action closure: @escaping ParamountDialogActionClosure = defaultParamountDialogActionClosure) -> ParamountDialog {
         let dialog = ParamountDialog.init()
         dialog.titleText = NSLocalizedString(titleKey, comment: "")
         dialog.messageText = NSLocalizedString(messageKey, comment: "")
@@ -441,7 +459,7 @@ open class ParamountDialog: UIViewController {
                          sound: SystemSounds.IDs? = nil,
                          blur: Bool = true,
                          to toView: UIView? = nil,
-                         action closure: @escaping ParamountDialogActionClosure) -> ParamountDialog {
+                         action closure: @escaping ParamountDialogActionClosure = defaultParamountDialogActionClosure) -> ParamountDialog {
         
         let dialog = ParamountDialog.make(dialog: titleKey,
                                           message: messageKey,
