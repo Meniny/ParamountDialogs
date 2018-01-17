@@ -142,13 +142,13 @@ public enum ImageType: Equatable {
 
 public enum TextFieldType: Equatable {
     case normal(String?, placeholder: String?, keyboard: UIKeyboardType)
-    case security(String?, placeholder: String?, keyboard: UIKeyboardType)
+    case secure(String?, placeholder: String?, keyboard: UIKeyboardType)
     
     public static func ==(lhs: TextFieldType, rhs: TextFieldType) -> Bool {
         switch (lhs, rhs) {
         case let (.normal(tl, pl, kl), .normal(tr, pr, kr)):
             return tl == tr && pl == pr && kl == kr
-        case let (.security(tl, pl, kl), .security(tr, pr, kr)):
+        case let (.secure(tl, pl, kl), .secure(tr, pr, kr)):
             return tl == tr && pl == pr && kl == kr
         default: return false
         }
@@ -158,7 +158,7 @@ public enum TextFieldType: Equatable {
         switch self {
         case .normal(_, _, _):
             return false
-        case .security(_, _, _):
+        case .secure(_, _, _):
             return true
         }
     }
@@ -167,7 +167,7 @@ public enum TextFieldType: Equatable {
         switch self {
         case .normal(let t, _, _):
             return t
-        case .security(let t, _, _):
+        case .secure(let t, _, _):
             return t
         }
     }
@@ -176,7 +176,7 @@ public enum TextFieldType: Equatable {
         switch self {
         case .normal(_, let p, _):
             return p
-        case .security(_ , let p, _):
+        case .secure(_ , let p, _):
             return p
         }
     }
@@ -185,7 +185,7 @@ public enum TextFieldType: Equatable {
         switch self {
         case .normal(_, _, let k):
             return k
-        case .security(_, _, let k):
+        case .secure(_, _, let k):
             return k
         }
     }
@@ -236,6 +236,12 @@ public var ParamountDialogDefaultActionClosure: ParamountDialogActionClosure {
 
 /// The dialog view used in Paramount
 open class ParamountDialog: UIViewController {
+    
+    public enum PreferredStyle {
+        case alert, actionSheet
+    }
+    
+    open let preferredStyle: ParamountDialog.PreferredStyle
     
     /// The title label
     open private(set) var titleLabel: ParamountLabel = ParamountLabel.init()
@@ -300,7 +306,8 @@ open class ParamountDialog: UIViewController {
     /// If blur background
     open var blurBackground: Bool = true
     
-    private init() {
+    private init(style: ParamountDialog.PreferredStyle) {
+        preferredStyle = style
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -314,20 +321,24 @@ open class ParamountDialog: UIViewController {
         self.configuration()
     }
     
-    
-    private var superWidth: CGFloat = kMaxDialogWidth
-    /// Subviews configuration
     private func configuration() {
+        if self.preferredStyle == .alert {
+            self.configurationForAlert()
+        } else {
+            self.configurationForActionSheet()
+        }
+    }
+    
+    private func commonConfiguration(footerbottom: CGFloat) {
         self.title = nil
-        self.view.backgroundColor = UIColor.clear//init(white: 0, alpha: 0.25)
+        self.view.backgroundColor = UIColor.clear
         
         self.view.translates(subViews: self.blurView, self.containerView)
         
         self.blurView.top(0).bottom(0).left(0).right(0)
         self.blurView.isHidden = !self.blurBackground
         
-        let containerWidth = fmin(fmin(UIScreen.main.bounds.width, UIScreen.main.bounds.height), self.superWidth)
-        self.containerView.centerInContainer().width(containerWidth)//.bottom(>=8).top(>=8)
+        self.containerView.width(self.containerWidth)
         
         self.containerView.translates(subViews: self.backgroundView,
                                       self.avatarContainerView,
@@ -343,7 +354,7 @@ open class ParamountDialog: UIViewController {
             |-8-self.contentView.height(>=8)-8-|,
             0,
             |-8-self.footerView.height(>=20)-8-|,
-            8
+            footerbottom
         )
         self.avatarContainerView.aspect(ofWidth: 100%)
         self.avatarContainerView.centerHorizontally()
@@ -372,7 +383,7 @@ open class ParamountDialog: UIViewController {
         self.messageContainer.translates(subViews: self.messageLabel)
         self.messageLabel.left(0).top(0).right(0).bottom(0).height(>=0)
         self.messageContainer.widthAttribute == self.messageScroller.widthAttribute
-//        self.messageScroller.height(<=100)//Attribute == self.messageContainer.heightAttribute
+        //        self.messageScroller.height(<=100)//Attribute == self.messageContainer.heightAttribute
         
         [self.titleLabel, self.messageLabel].style { (l) in
             l.textAlignment = .center
@@ -413,12 +424,12 @@ open class ParamountDialog: UIViewController {
         
         self.titleLabel.text = self.titleText
         self.messageLabel.text = self.messageText
-            
+        
         self.messageLabel.textAlignment = self.messageAlignment
         
         self.backgroundView.backgroundColor = UIColor.white
         self.backgroundView.clipsToBounds = true
-        self.backgroundView.layer.cornerRadius = 10
+        self.backgroundView.layer.cornerRadius = self.backgroundCornerRadius
         
         self.avatarView.setImage(self.avatar, placeholder: self.avatarPlaceholder)
         
@@ -441,13 +452,32 @@ open class ParamountDialog: UIViewController {
         
         for btn in self.buttonInfoSet {
             self.addAction(btn.title, style: btn.style, sound: self.genericSoundID, onTap: { (b) in
-//                guard let strongSelf = self else {
-//                    return
-//                }
+                //                guard let strongSelf = self else {
+                //                    return
+                //                }
                 self.actionClosure?(self, b)
             })
         }
         self.buttons.last?.bottom(0)
+    }
+    
+    private var superWidth: CGFloat = kMaxDialogWidth
+    private lazy var containerWidth: CGFloat = {
+        return fmin(fmin(UIScreen.main.bounds.width, UIScreen.main.bounds.height), self.superWidth)
+    }()
+    
+    private let backgroundCornerRadius: CGFloat = 10
+    
+    private func configurationForActionSheet() {
+        self.commonConfiguration(footerbottom: 8 + self.backgroundCornerRadius)
+        self.containerView.centerHorizontally()
+        self.containerView.bottom(-self.backgroundCornerRadius)
+    }
+    
+    /// Subviews configuration
+    private func configurationForAlert() {
+        self.commonConfiguration(footerbottom: 8)
+        self.containerView.centerInContainer()
     }
     
     deinit {
@@ -465,27 +495,40 @@ open class ParamountDialog: UIViewController {
         let keyboradHeight = keyboardframe.height
         let mainLeftHeight = mainViewHeight - keyboradHeight
         let containerHeight = self.containerView.bounds.height
+        
+        let style = self.preferredStyle
+        let extend = self.backgroundCornerRadius
+        
         UIView.animate(withDuration: 0.25) { [weak self] in
-            let centerY: CGFloat
-            if mainLeftHeight >= containerHeight {
-                 centerY = mainViewHalf - mainLeftHeight * 0.5
-            } else {
-                if keyboradHeight <= mainViewHalf {
-                    centerY = mainViewHalf - (mainLeftHeight - containerHeight * 0.5)
+            if style == .alert {
+                let centerY: CGFloat
+                if mainLeftHeight >= containerHeight {
+                    centerY = mainViewHalf - mainLeftHeight * 0.5
                 } else {
-                    centerY = (keyboradHeight - mainViewHalf) + containerHeight * 0.5 + 8
+                    if keyboradHeight <= mainViewHalf {
+                        centerY = mainViewHalf - (mainLeftHeight - containerHeight * 0.5)
+                    } else {
+                        centerY = (keyboradHeight - mainViewHalf) + containerHeight * 0.5 + 8
+                    }
                 }
+                self?.containerView.centerYConstraint?.constant = -fabs(centerY)
+            } else {
+                self?.containerView.bottomConstraint?.constant = -(keyboradHeight - extend)
             }
-            
-            self?.containerView.centerYConstraint?.constant = -fabs(centerY)
             self?.view.layoutIfNeeded()
         }
     }
     
     @objc
     private func keyboardWillHide(_ notification: Notification) {
+        let style = self.preferredStyle
+        let extend = self.backgroundCornerRadius
         UIView.animate(withDuration: 0.25) { [weak self] in
-            self?.containerView.centerYConstraint?.constant = 0
+            if style == .alert {
+                self?.containerView.centerYConstraint?.constant = 0
+            } else {
+                self?.containerView.bottomConstraint?.constant = extend
+            }
             self?.view.layoutIfNeeded()
         }
     }
@@ -545,7 +588,7 @@ open class ParamountDialog: UIViewController {
     /// - Returns: The button itself
     @discardableResult
     private func addAction(_ actionTitle: String,
-                        style: ParamountButton.DisplayStyle = .bordered,
+                        style: ParamountButton.DisplayStyle,
                         sound: SystemSounds.IDs? = nil,
                         onTap closure: @escaping ParamountButtonTapActionClosure) -> ParamountButton {
         let button = ParamountButton.init(title: actionTitle, style: style, sound: sound, closure: closure)
@@ -581,6 +624,7 @@ open class ParamountDialog: UIViewController {
     /// Make a dialog instance
     ///
     /// - Parameters:
+    ///   - style: Preferred diaog style
     ///   - titleKey: The key for localized title text
     ///   - messageKey: The key for localized message text
     ///   - alignment: Message text alignment
@@ -593,7 +637,8 @@ open class ParamountDialog: UIViewController {
     ///   - closure: Button tapped action
     /// - Returns: The dialog
     @discardableResult
-    open class func make(dialog titleKey: String,
+    open class func make(_ style: ParamountDialog.PreferredStyle = .alert,
+                         title titleKey: String,
                          message messageKey: String,
                          alignment: NSTextAlignment = .center,
                          icon: ImageType,
@@ -603,7 +648,7 @@ open class ParamountDialog: UIViewController {
                          sound: SystemSounds.IDs? = nil,
                          blur: Bool = true,
                          action closure: @escaping ParamountDialogActionClosure = ParamountDialogDefaultActionClosure) -> ParamountDialog {
-        let dialog = ParamountDialog.init()
+        let dialog = ParamountDialog.init(style: style)
         dialog.titleText = NSLocalizedString(titleKey, comment: "")
         dialog.messageText = NSLocalizedString(messageKey, comment: "")
         dialog.messageAlignment = alignment
@@ -620,6 +665,7 @@ open class ParamountDialog: UIViewController {
     /// Show a dialog
     ///
     /// - Parameters:
+    ///   - style: Preferred diaog style
     ///   - titleKey: The key for localized title text
     ///   - messageKey: The key for localized message text
     ///   - alignment: Message text alignment
@@ -632,7 +678,8 @@ open class ParamountDialog: UIViewController {
     ///   - closure: Button tapped action
     /// - Returns: The dialog
     @discardableResult
-    open class func show(dialog titleKey: String,
+    open class func show(_ style: ParamountDialog.PreferredStyle = .alert,
+                         title titleKey: String,
                          message messageKey: String,
                          alignment: NSTextAlignment = .center,
                          icon: ImageType,
@@ -644,7 +691,8 @@ open class ParamountDialog: UIViewController {
                          to toView: UIView? = nil,
                          action closure: @escaping ParamountDialogActionClosure = ParamountDialogDefaultActionClosure) -> ParamountDialog {
         
-        let dialog = ParamountDialog.make(dialog: titleKey,
+        let dialog = ParamountDialog.make(style,
+                                          title: titleKey,
                                           message: messageKey,
                                           alignment: alignment,
                                           icon: icon,
@@ -708,16 +756,42 @@ open class ParamountDialog: UIViewController {
         self.updateMessageScroller()
         
         if animated {
-            self.containerView.transform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
+            let completion: (Bool) -> Void = { [weak self] (f) in
+                if f {
+                    self?.textFields.first?.becomeFirstResponder()
+                }
+            }
+            
             self.view.alpha = 0
-            UIView.animate(withDuration: kDuration, animations: { [weak self] in
-                self?.containerView.transform = CGAffineTransform.init(scaleX: 1, y: 1)
-                self?.view.alpha = 1
-                }, completion: { [weak self] (f) in
-                    if f {
-                        self?.textFields.first?.becomeFirstResponder()
-                    }
-            })
+            
+            if self.preferredStyle == .alert {
+                self.containerView.transform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
+                UIView.animate(withDuration: kDuration, animations: { [weak self] in
+                    self?.containerView.transform = CGAffineTransform.init(scaleX: 1, y: 1)
+                    self?.view.alpha = 1
+                    }, completion: completion)
+            } else {
+                let containerHeight = self.containerView.bounds.size.height
+                let extend = self.backgroundCornerRadius
+                self.containerView.bottomConstraint?.constant = containerHeight
+                UIView.animate(withDuration: kDuration, animations: { [weak self] in
+                    self?.containerView.bottomConstraint?.constant = extend
+                    self?.view.alpha = 1
+                    self?.view.layoutIfNeeded()
+                    }, completion: completion)
+            }
+        }
+    }
+    
+    private func showAlert(animated: Bool) {
+        if animated {
+            
+        }
+    }
+    
+    private func showActionSheet(animated: Bool) {
+        if animated {
+            
         }
     }
     
@@ -750,19 +824,30 @@ open class ParamountDialog: UIViewController {
             return
         }
         if animated {
-            self.containerView.transform = CGAffineTransform.init(scaleX: 1, y: 1)
             self.view.alpha = 1
-            UIView.animate(withDuration: kDuration, animations: { [weak self] in
-                self?.containerView.transform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
-                self?.view.alpha = 0
-            }, completion: { [weak self] (f) in
+            let completion: (Bool) -> Void = { [weak self] (f) in
                 if f {
                     self?.view.removeFromSuperview()
                     if self?.shouldWaitInQueue == true {
                         kDialogSemaphore.signal()
                     }
                 }
-            })
+            }
+            if self.preferredStyle == .alert {
+                self.containerView.transform = CGAffineTransform.init(scaleX: 1, y: 1)
+                UIView.animate(withDuration: kDuration, animations: { [weak self] in
+                    self?.containerView.transform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
+                    self?.view.alpha = 0
+                    }, completion: completion)
+            } else {
+                let containerHeight = self.containerView.bounds.size.height
+                self.containerView.bottomConstraint?.constant = self.backgroundCornerRadius
+                UIView.animate(withDuration: kDuration, animations: { [weak self] in
+                    self?.containerView.bottomConstraint?.constant = containerHeight
+                    self?.view.alpha = 0
+                    self?.view.layoutIfNeeded()
+                    }, completion: completion)
+            }
         } else {
             self.view.removeFromSuperview()
             if self.shouldWaitInQueue {
@@ -871,8 +956,8 @@ open class ParamountButton: UIButton {
     open private(set) var soundID: SystemSounds.IDs? = nil
     
     public init(title: String,
-                style: ParamountButton.DisplayStyle = .bordered,
-                sound: SystemSounds.IDs? = nil,
+                style: ParamountButton.DisplayStyle,
+                sound: SystemSounds.IDs?,
                 closure: @escaping ParamountButtonTapActionClosure) {
         self.style = style
         self.soundID = sound

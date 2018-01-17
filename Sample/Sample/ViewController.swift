@@ -73,12 +73,11 @@ class ViewController: UIViewController {
         return result
     }
     
+    let icon = URL.init(string: "https://www.google.co.jp/logos/doodles/2018/katy-jurados-94th-birthday-5562889569042432-l.png")
+    
     private func showDialog(queue: Bool = true, message m: String? = nil) {
         self.counter += 1
-        
-        let icon = URL.init(string: "https://www.google.co.jp/logos/doodles/2018/katy-jurados-94th-birthday-5562889569042432-l.png")
         let message = m ?? "Welcome, \(randomNames().joined(separator: ", "))!"
-        
         var buttons: ParamountButtonInfoSet = []
         if queue {
             buttons.append(.filled("Show Another"))
@@ -91,11 +90,12 @@ class ViewController: UIViewController {
         } else {
             textFields = [
                 TextFieldType.normal("admin@meniny.cn", placeholder: "Username/E-mail", keyboard: .emailAddress),
-                TextFieldType.security("12345678", placeholder: "Passcode", keyboard: .asciiCapable),
+                TextFieldType.secure("12345678", placeholder: "Passcode", keyboard: .asciiCapable),
             ]
         }
         
-        let dialog = ParamountDialog.make(dialog: queue ? "Dialog \(self.counter)" : "Avatar Tapped",
+        let dialog = ParamountDialog.make(.alert,
+                                          title: queue ? "Dialog \(self.counter)" : "Avatar Tapped",
                                           message: message,
                                           alignment: .center,
                                           icon: .remote(icon),
@@ -105,13 +105,29 @@ class ViewController: UIViewController {
                                           sound: .endRecord,
                                           blur: true) { [weak self] (d, btn) in
                                             if btn.title(for: .normal) == "Show Another" {
-                                                self?.showDialog()
+                                                self?.actionSheet(message)
                                             }
                                             d.hide()
             }.onAvatarTapped { [weak self] (dialog, imageView) in
                 self?.showDialog(queue: false, message: String.init(describing: dialog.avatar.source))
         }
         dialog.show(animated: true, to: self.view, wait: queue)
+    }
+    
+    private func actionSheet(_ message: String) {
+        let dialog = ParamountDialog.make(.actionSheet,
+                                          title: "Action Sheet",
+                                          message: message,
+                                          alignment: .center,
+                                          icon: .remote(icon),
+                                          placeholder: nil,
+                                          buttons: [.filled("Send e-mail"), .bordered("Not now")],
+                                          textFields: [.normal("admin@meniny.cn", placeholder: "Username/E-mail", keyboard: .emailAddress)],
+                                          sound: .endRecord,
+                                          blur: true) { (d, btn) in
+                                            d.hide()
+            }
+        dialog.show(animated: true, to: self.view, wait: true)
     }
 
 }
