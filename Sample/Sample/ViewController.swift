@@ -86,7 +86,7 @@ class ViewController: UIViewController {
         let message = m ?? "Welcome, \(randomNames().joined(separator: ", "))!"
         var buttons: ParamountButtonInfoSet = []
         if queue {
-            buttons.append(.filled("Show Action Sheet"))
+            buttons.append(.filled("Show Another Dialog"))
         }
         buttons.append(.bordered("Cancel"))
         
@@ -102,8 +102,7 @@ class ViewController: UIViewController {
             ]
         }
         
-        let dialog = ParamountDialog.make(.alert,
-                                          title: queue ? "Dialog \(self.counter)" : "Avatar Tapped",
+        let dialog = ParamountDialog.make(queue ? "Dialog \(self.counter)" : "Avatar Tapped",
                                           message: message,
                                           alignment: .center,
                                           icon: .remote(icon),
@@ -112,19 +111,18 @@ class ViewController: UIViewController {
                                           textFields: textFields,
                                           sound: .endRecord,
                                           blur: true) { [weak self] (d, btn) in
-                                            if btn.title(for: .normal) == "Show Action Sheet" {
-                                                self?.actionSheet(message)
+                                            if btn.title(for: .normal) == "Show Another Dialog" {
+                                                self?.anotherDialog(message)
                                             }
                                             d.hide()
             }.onAvatarTapped { [weak self] (dialog, imageView) in
                 self?.showDialog(queue: false, message: String.init(describing: dialog.avatar.source))
         }
-        dialog.show(animated: true, to: self.view, wait: queue)
+        dialog.show(animated: true, to: self, wait: queue)
     }
     
-    private func actionSheet(_ message: String) {
-        let dialog = ParamountDialog.make(.actionSheet,
-                                          title: "Action Sheet",
+    private func anotherDialog(_ message: String) {
+        let dialog = ParamountDialog.make("Another Dialog",
                                           message: message,
                                           alignment: .center,
                                           icon: .remote(icon),
@@ -135,7 +133,7 @@ class ViewController: UIViewController {
                                           blur: true) { (d, btn) in
                                             d.hide()
             }
-        dialog.show(animated: true, to: self.view, wait: true)
+        dialog.show(animated: true, to: self, wait: true)
     }
 
 }
