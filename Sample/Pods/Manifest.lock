@@ -1,12 +1,12 @@
 PODS:
   - JustLayout (1.2.1)
   - Kingfisher (4.6.1)
-  - ParamountDialogs (2.0.0):
+  - ParamountDialogs (2.0.1):
     - JustLayout
     - Kingfisher
     - PresentationSettings
     - SystemSounds
-  - PresentationSettings (1.0.0)
+  - PresentationSettings (1.1.2)
   - SystemSounds (1.0.1)
 
 DEPENDENCIES:
@@ -19,8 +19,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   JustLayout: 3015f2e0d923f20cfa64ebf8830e2288e199486e
   Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
-  ParamountDialogs: 0186b23dfca79970f8dbdfc95ab77964989adae9
-  PresentationSettings: 2e4f8d06d4a0d9c18932fe95ccca510f368c8812
+  ParamountDialogs: ca229e5af40a0e96b525c0fa80f47b95e166c229
+  PresentationSettings: a4a9b3675d2294140daf4d1606c94509d65ed915
   SystemSounds: 7e3dc5eaca4b5bbca3f1e6e82796489a8407f474
 
 PODFILE CHECKSUM: f94a59a0decdf756db7e327f1050e1c62dd806fa

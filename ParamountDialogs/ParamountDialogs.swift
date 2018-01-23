@@ -598,7 +598,7 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
             if !wait {
                 if let last = toViewController?.presentedViewController {
                     let completion: (() -> Void) = {
-                        self.show_in_queue(animated: animated, to: toViewController)
+                        self.show_in_queue(true, animated: animated, to: toViewController)
                     }
                     if let lastDialog = last as? ParamountDialog {
                         lastDialog.hide(animated: true, completion: completion)
@@ -608,20 +608,11 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
                     return
                 }
             }
-            self.show_in_queue(animated: animated, to: toViewController)
+            self.show_in_queue(true, animated: animated, to: toViewController)
         }
     }
     
-    private func show_in_queue(animated: Bool, to toViewController: UIViewController?) {
-        kDialogQueue.async {
-            kDialogSemaphore.wait()
-            DispatchQueue.main.async {
-                self.private_show(animated: animated, to: toViewController)
-            }
-        }
-    }
-    
-    private func private_show(animated: Bool, to toViewController: UIViewController?) {
+    private func show_in_queue(_ queue: Bool, animated: Bool, to toViewController: UIViewController?) {
         let toController = toViewController ?? UIApplication.shared.keyWindow?.rootViewController
         guard let controller = toController else {
             fatalError("Nil view controller to show")
@@ -630,12 +621,17 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
         self.loadViewIfNeeded()
         self.updateMessageScroller()
         
-        let settings = PresentationSettings.default
-        
         controller.present(viewController: self,
-                           settings: settings,
-                           animated: animated, completion: nil)
+                           settings: self.presentationSettings,
+                           animated: animated,
+                           serial: queue,
+                           completion: nil)
     }
+    
+    open lazy var presentationSettings: PresentationSettings = {
+        let settings = PresentationSettings.default
+        return settings
+    }()
     
     /// Hide this dialog
     ///
@@ -643,12 +639,9 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
     ///   - animated: If animated
     ///   - completion: Completion action
     open func hide(animated: Bool = true, completion: (() -> Void)? = nil) {
-        self.dismiss(animated: animated) {
-            if self.shouldWaitInQueue {
-                kDialogSemaphore.signal()
-            }
-            completion?()
-        }
+        self.dismiss(fromSerial: true,//self.shouldWaitInQueue,
+                     animated: animated,
+                     completion: completion)
     }
     
     open var maxLineCount: UInt = 8

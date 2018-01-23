@@ -71,8 +71,6 @@ import PresentationSettings
 internal var kDialogWidth: CGFloat = PresentationSettings.suggestedViewWidth
 internal var kDialogMarginWidth: CGFloat = 16
 internal let kDuration: TimeInterval = 0.25
-internal var kDialogSemaphore = DispatchSemaphore.init(value: 1)
-internal var kDialogQueue = DispatchQueue.init(label: "ParamountDialogOrderQueue")
 
 public typealias ParamountButtonTapActionClosure = (_ button: ParamountButton) -> Swift.Void
 public typealias ParamountDialogActionClosure = (_ dialog: ParamountDialog, _ tapped: ParamountButton) -> Swift.Void
