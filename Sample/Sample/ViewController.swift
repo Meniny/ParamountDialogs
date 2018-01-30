@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         tapGesture.numberOfTouchesRequired = 1
         imageView.addGestureRecognizer(tapGesture)
         
-        let loading = ParamountDialog.show(loading: "Loading...", message: "Please wait 5 seconds.", icon: .remote(icon))
+        let loading = ParamountDialog.show(loading: "Loading...", message: "Please wait 5 seconds.", icon: .remote(icon), size: 80, border: 3)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {// [weak loading] in
             loading.hide()
@@ -106,6 +106,8 @@ class ViewController: UIViewController {
                                           message: message,
                                           alignment: .center,
                                           icon: .remote(icon),
+                                          size: 80,
+                                          border: 3,
                                           placeholder: nil,
                                           buttons: buttons,
                                           textFields: textFields,
@@ -126,6 +128,8 @@ class ViewController: UIViewController {
                                           message: message,
                                           alignment: .center,
                                           icon: .remote(icon),
+                                          size: 80,
+                                          border: 3,
                                           placeholder: nil,
                                           buttons: [.filled("Send e-mail"), .bordered("Not now")],
                                           textFields: [.normal("admin@meniny.cn", placeholder: "Username/E-mail", keyboard: .emailAddress)],

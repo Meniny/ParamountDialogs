@@ -98,6 +98,8 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
     open private(set) var avatarContainerView: UIView = UIView.init()
     /// The avatar
     open var avatar: ImageType = .nil
+    open var avatarSize: CGFloat = 100
+    open var avatarBorderWidth: CGFloat = 3
     /// The avatar placeholder
     open var avatarPlaceholder: UIImage?
     /// The avatar view tap action
@@ -220,13 +222,15 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
             0
         )
         
-        let avatarLength: CGFloat = fmin(UIScreen.main.bounds.width, UIScreen.main.bounds.height) * 0.4
+        let avatarLength = self.avatarSize
+        let avatarBorder = self.avatarBorderWidth
+        //: CGFloat = fmin(UIScreen.main.bounds.width, UIScreen.main.bounds.height) * 0.4
         self.avatarView.size(avatarLength)
         self.avatarView.style { (avatar) in
             avatar.clipsToBounds = true
             avatar.layer.masksToBounds = true
             avatar.layer.cornerRadius = avatarLength * 0.50
-            avatar.layer.borderWidth = 5
+            avatar.layer.borderWidth = avatarBorder
             avatar.layer.borderColor = UIColor.white.cgColor
             avatar.backgroundColor = UIColor.groupTableViewBackground
             avatar.contentMode = .scaleAspectFill
@@ -372,7 +376,7 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
         
         let fieldHeight: CGFloat = 49
         let marginV: CGFloat = 8
-        let marginH: CGFloat = 8
+        let marginH: CGFloat = 0
         
         textField.left(marginH).right(marginH).height(fieldHeight)
         
@@ -457,6 +461,8 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
                          message messageKey: String,
                          alignment: NSTextAlignment = .center,
                          icon: ImageType,
+                         size iconSize: CGFloat,
+                         border: CGFloat,
                          placeholder: UIImage? = nil,
                          buttons buttonSet: ParamountButtonInfoSet,
                          defaultButton: Bool = true,
@@ -470,6 +476,8 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
         dialog.messageText = NSLocalizedString(messageKey, comment: "")
         dialog.messageAlignment = alignment
         dialog.avatar = icon
+        dialog.avatarSize = iconSize
+        dialog.avatarBorderWidth = border
         dialog.avatarPlaceholder = placeholder
         dialog.buttonInfoSet.append(contentsOf: buttonSet)
         dialog.textFieldInfoSet.append(contentsOf: fieldSet)
@@ -500,6 +508,8 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
                          message messageKey: String,
                          alignment: NSTextAlignment = .center,
                          icon: ImageType,
+                         size iconSize: CGFloat,
+                         border: CGFloat,
                          placeholder: UIImage? = nil,
                          buttons buttonSet: ParamountButtonInfoSet,
                          defaultButton: Bool = true,
@@ -514,6 +524,8 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
                                           message: messageKey,
                                           alignment: alignment,
                                           icon: icon,
+                                          size: iconSize,
+                                          border: border,
                                           placeholder: placeholder,
                                           buttons: buttonSet,
                                           defaultButton: defaultButton,
@@ -532,6 +544,8 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
                          message messageKey: String,
                          alignment: NSTextAlignment = .center,
                          icon: ImageType,
+                         size iconSize: CGFloat,
+                         border: CGFloat,
                          placeholder: UIImage? = nil,
                          buttons buttonSet: ParamountButtonInfoSet = [],
                          sound: SystemSounds.IDs? = nil,
@@ -549,6 +563,8 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
                          message: messageKey,
                          alignment: alignment,
                          icon: icon,
+                         size: iconSize,
+                         border: border,
                          placeholder: placeholder,
                          buttons: buttonSet,
                          defaultButton: false,
@@ -564,6 +580,8 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
                          message messageKey: String,
                          alignment: NSTextAlignment = .center,
                          icon: ImageType,
+                         size iconSize: CGFloat,
+                         border: CGFloat,
                          placeholder: UIImage? = nil,
                          buttons buttonSet: ParamountButtonInfoSet = [],
                          sound: SystemSounds.IDs? = nil,
@@ -575,6 +593,8 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
                                 message: messageKey,
                                 alignment: alignment,
                                 icon: icon,
+                                size: iconSize,
+                                border: border,
                                 placeholder: placeholder,
                                 buttons: buttonSet,
                                 sound: sound,
