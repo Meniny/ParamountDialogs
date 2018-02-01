@@ -112,7 +112,7 @@ class ViewController: UIViewController {
                                           buttons: buttons,
                                           textFields: textFields,
                                           sound: .endRecord,
-                                          blur: true) { [weak self] (d, btn) in
+                                          blur: true) { [weak self] (d, btn, i) in
                                             if btn.title(for: .normal) == "Show Another Dialog" {
                                                 self?.anotherDialog(message)
                                             }
@@ -134,7 +134,7 @@ class ViewController: UIViewController {
                                           buttons: [.filled("Send e-mail"), .bordered("Not now")],
                                           textFields: [.normal("admin@meniny.cn", placeholder: "Username/E-mail", keyboard: .emailAddress)],
                                           sound: .endRecord,
-                                          blur: true) { (d, btn) in
+                                          blur: true) { (d, btn, i) in
                                             d.hide()
             }
         dialog.show(animated: true, to: self, wait: true)

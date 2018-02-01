@@ -120,7 +120,7 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
     open private(set) var customView: UIView?
     
     /// A set of button configurations
-    open private(set) var buttonInfoSet: ParamountButtonInfoSet = []
+    open private(set) var buttonInfoSet: [ButtonType] = []
     /// The buttons array
     open private(set) var buttons: [ParamountButton] = []
     /// The button tap action
@@ -128,7 +128,7 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
     open private(set) var genericSoundID: SystemSounds.IDs?
     
     /// A set of text filed configurations
-    open private(set) var textFieldInfoSet: ParamountTextFieldInfoSet = []
+    open private(set) var textFieldInfoSet: [TextFieldType] = []
     /// The text fields array
     open private(set) var textFields: [ParamountTextField] = []
     
@@ -293,11 +293,12 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
         }
         
         for btn in self.buttonInfoSet {
+            let idx = self.buttonInfoSet.index(of: btn) ?? 0
             self.addAction(btn.title, style: btn.style, sound: self.genericSoundID, onTap: { (b) in
                 //                guard let strongSelf = self else {
                 //                    return
                 //                }
-                self.actionClosure?(self, b)
+                self.actionClosure?(self, b, idx)
             })
         }
         self.buttons.last?.bottom(0)

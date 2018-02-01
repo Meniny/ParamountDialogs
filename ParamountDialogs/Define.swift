@@ -73,7 +73,7 @@ internal var kDialogMarginWidth: CGFloat = 16
 internal let kDuration: TimeInterval = 0.25
 
 public typealias ParamountButtonTapActionClosure = (_ button: ParamountButton) -> Swift.Void
-public typealias ParamountDialogActionClosure = (_ dialog: ParamountDialog, _ tapped: ParamountButton) -> Swift.Void
+public typealias ParamountDialogActionClosure = (_ dialog: ParamountDialog, _ tapped: ParamountButton, _ index: Int) -> Swift.Void
 public typealias ParamountAvatarActionClosure = (_ dialog: ParamountDialog, _ avatar: UIImageView) -> Swift.Void
 
 /// The types of icon
@@ -155,7 +155,7 @@ internal extension UIImageView {
 }
 
 public var ParamountDialogDefaultActionClosure: ParamountDialogActionClosure {
-    let c: ParamountDialogActionClosure =  { d, b in
+    let c: ParamountDialogActionClosure =  { d, b, i in
         d.hide()
     }
     return c
