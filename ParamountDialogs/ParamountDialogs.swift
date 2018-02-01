@@ -229,16 +229,25 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
         
         let avatarLength = self.avatarSize
         let avatarBorder = self.avatarBorderWidth
-        //: CGFloat = fmin(UIScreen.main.bounds.width, UIScreen.main.bounds.height) * 0.4
+        let hasBorder = avatarBorder > 0
+        
         self.avatarView.size(avatarLength)
         self.avatarView.style { (avatar) in
-            avatar.clipsToBounds = true
-            avatar.layer.masksToBounds = true
-            avatar.layer.cornerRadius = avatarLength * 0.50
+            if hasBorder {
+                avatar.clipsToBounds = true
+                avatar.layer.masksToBounds = true
+                avatar.layer.cornerRadius = avatarLength * 0.50
+                avatar.layer.borderColor = UIColor.white.cgColor
+                avatar.backgroundColor = UIColor.groupTableViewBackground
+            } else {
+                avatar.clipsToBounds = false
+                avatar.layer.masksToBounds = false
+                avatar.layer.cornerRadius = 0
+                avatar.layer.borderColor = UIColor.clear.cgColor
+                avatar.backgroundColor = UIColor.clear
+            }
             avatar.layer.borderWidth = avatarBorder
-            avatar.layer.borderColor = UIColor.white.cgColor
-            avatar.backgroundColor = UIColor.groupTableViewBackground
-            avatar.contentMode = .scaleAspectFill
+            avatar.contentMode = .scaleAspectFit
         }
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(avatarTapped))
         tapGesture.cancelsTouchesInView = true
