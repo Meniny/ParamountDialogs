@@ -120,6 +120,11 @@ class ViewController: UIViewController {
             }.onAvatarTapped { [weak self] (dialog, imageView) in
                 self?.showDialog(queue: false, message: String.init(describing: dialog.avatar.source))
         }
+        
+        dialog.hiddingAction = {
+            print("HIDDING")
+        }
+        
         dialog.show(animated: true, to: self, wait: queue)
     }
     

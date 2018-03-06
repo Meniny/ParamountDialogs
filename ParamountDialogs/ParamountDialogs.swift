@@ -668,15 +668,18 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
         return settings
     }()
     
+    open var hiddingAction: (() -> Void)?
+    
     /// Hide this dialog
     ///
     /// - Parameters:
     ///   - animated: If animated
     ///   - completion: Completion action
     open func hide(animated: Bool = true, completion: (() -> Void)? = nil) {
-        self.dismiss(fromSerial: true,//self.shouldWaitInQueue,
-                     animated: animated,
-                     completion: completion)
+        self.dismiss(fromSerial: true, animated: animated, completion: { [weak self] in
+            self?.hiddingAction?()
+            completion?()
+        })
     }
     
     open var maxLineCount: UInt = 8
