@@ -102,6 +102,9 @@ class ViewController: UIViewController {
             ]
         }
         
+        let bg = UIView.init()
+        bg.backgroundColor = queue ? UIColor.darkText : UIColor(red:0.80, green:0.20, blue:0.20, alpha:1.00)
+        
         let dialog = ParamountDialog.make(queue ? "Dialog \(self.counter)" : "Avatar Tapped",
                                           message: message,
                                           alignment: .center,
@@ -111,6 +114,7 @@ class ViewController: UIViewController {
                                           placeholder: nil,
                                           buttons: buttons,
                                           textFields: textFields,
+                                          background: bg,
                                           sound: .endRecord,
                                           blur: true) { [weak self] (d, btn, i) in
                                             if btn.title(for: .normal) == "Show Another Dialog" {

@@ -78,20 +78,7 @@ public class PresentationSettings: NSObject {
     /// Should the presented controller use animation when dismiss on background tap or swipe. Default is true.
     public var dismissAnimated = true
 
-    /// Color of the background. Default is Black.
-    public var backgroundColor = UIColor.black
-
-    /// Opacity of the background. Default is 0.7.
-    public var backgroundOpacity: Float = 0.7
-
-    /// Should the presented controller blur the background. Default is false.
-    public var blurBackground = false
-
-    /// The type of blur to be applied to the background. Ignored if blurBackground is set to false. Default is Dark.
-    public var blurStyle: UIBlurEffectStyle = .dark
-
-    /// A custom background view to be added on top of the regular background view.
-    public var customBackgroundView: UIView?
+    public var backgroundType: PresentationBackground = .blur(.dark)
     
     /// How the presented view controller should respond to keyboard presentation.
     public var keyboardTranslationType: KeyboardTranslationType = .none
@@ -191,11 +178,7 @@ extension PresentationSettings: UIViewControllerTransitioningDelegate {
                                     dismissOnSwipe: dismissOnSwipe,
                                     dismissOnSwipeDirection: dismissOnSwipeDirection,
                                     dismissSwipeLimit: dismissSwipeLimit,
-                                    backgroundColor: backgroundColor,
-                                    backgroundOpacity: backgroundOpacity,
-                                    blurBackground: blurBackground,
-                                    blurStyle: blurStyle,
-                                    customBackgroundView: customBackgroundView,
+                                    background: backgroundType,
                                     keyboardTranslationType:  keyboardTranslationType,
                                     dismissAnimated: dismissAnimated,
                                     contextFrameForPresentation: contextFrameForPresentation,

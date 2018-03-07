@@ -90,7 +90,7 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
     open private(set) var containerView: UIView = UIView.init()
     
     /// The background view
-    open private(set) var backgroundView: UIView = UIView.init()
+    open private(set) var cardView: UIView = UIView.init()
     
     /// The avatar view
     open private(set) var avatarView: UIImageView = UIImageView.init()
@@ -118,6 +118,8 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
     open private(set) var contentView: UIView = UIView.init()
     /// The custom view to display
     open private(set) var customView: UIView?
+    
+    open private(set) var backgroundView: UIView?
     
     /// A set of button configurations
     open private(set) var buttonInfoSet: [ButtonType] = []
@@ -161,7 +163,7 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
         self.containerView.top(>=8).bottom(>=8).left(>=8).right(>=8)
         self.containerView.centerInContainer()
         
-        self.containerView.translates(subViews: self.backgroundView,
+        self.containerView.translates(subViews: self.cardView,
                                       self.avatarContainerView,
                                       self.headerView,
                                       self.contentView,
@@ -180,8 +182,8 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
         self.avatarContainerView.aspect(ofWidth: 100%)
         self.avatarContainerView.centerHorizontally()
         
-        self.backgroundView.topAttribute == self.avatarContainerView.centerYAttribute
-        self.backgroundView.left(0).right(0).bottom(0)
+        self.cardView.topAttribute == self.avatarContainerView.centerYAttribute
+        self.cardView.left(0).right(0).bottom(0)
         
         self.headerView.translates(subViews: self.titleLabel, self.messageScroller)
         self.headerView.layout(
@@ -261,9 +263,9 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
         
         self.messageScroller.height(20)
         
-        self.backgroundView.backgroundColor = UIColor.white
-        self.backgroundView.clipsToBounds = true
-        self.backgroundView.layer.cornerRadius = self.backgroundCornerRadius
+        self.cardView.backgroundColor = UIColor.white
+        self.cardView.clipsToBounds = true
+        self.cardView.layer.cornerRadius = self.backgroundCornerRadius
         
         self.avatarView.setImage(self.avatar, placeholder: self.avatarPlaceholder)
         
@@ -483,6 +485,7 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
                          defaultButton: Bool = true,
                          textFields fieldSet: ParamountTextFieldInfoSet = [],
                          customView custom: UIView? = nil,
+                         background: UIView? = nil,
                          sound: SystemSounds.IDs? = nil,
                          blur: Bool = true,
                          action closure: @escaping ParamountDialogActionClosure = ParamountDialogDefaultActionClosure) -> ParamountDialog {
@@ -499,7 +502,8 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
         dialog.hasDefaultClosureButton = defaultButton
         dialog.customView = custom
         dialog.genericSoundID = sound
-        dialog.blurBackground = blur
+        dialog.backgroundView = background
+        dialog.blurBackground = background == nil ? blur : false
         dialog.actionClosure = closure
         return dialog
     }
@@ -530,6 +534,7 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
                          defaultButton: Bool = true,
                          textFields fieldSet: ParamountTextFieldInfoSet = [],
                          customView custom: UIView? = nil,
+                         background: UIView? = nil,
                          sound: SystemSounds.IDs? = nil,
                          blur: Bool = true,
                          to toViewController: UIViewController? = nil,
@@ -546,6 +551,7 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
                                           defaultButton: defaultButton,
                                           textFields: fieldSet,
                                           customView: custom,
+                                          background: background,
                                           sound: sound,
                                           blur: blur,
                                           action: closure)
@@ -655,6 +661,10 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
         
         self.loadViewIfNeeded()
         self.updateMessageScroller()
+        
+        if let bg = self.backgroundView {
+            self.presentationSettings.backgroundType = .view(bg)
+        }
         
         controller.present(viewController: self,
                            settings: self.presentationSettings,
