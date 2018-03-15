@@ -58,7 +58,7 @@
 //  total_hours_wasted_here = 0
 //
 //  Created by Elias Abel on 2018/1/16.
-//  
+//
 //
 
 import Foundation
@@ -116,8 +116,10 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
     open private(set) var footerView: UIView = UIView.init()
     /// The container view of other contents
     open private(set) var contentView: UIView = UIView.init()
+    open private(set) var customViewContainerView: UIView = UIView.init()
     /// The custom view to display
     open private(set) var customView: UIView?
+    open private(set) var customViewInsets: UIEdgeInsets = .zero
     
     open private(set) var backgroundView: UIView?
     
@@ -144,7 +146,7 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
     }
     
     public required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
+        //        super.init(coder: aDecoder)
         fatalError("User the class method instead")
     }
     
@@ -167,6 +169,7 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
                                       self.avatarContainerView,
                                       self.headerView,
                                       self.contentView,
+                                      self.customViewContainerView,
                                       self.footerView)
         self.containerView.layout(
             8,
@@ -175,6 +178,8 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
             |-8-self.headerView.height(>=20)-8-|,
             0,
             |-8-self.contentView.height(>=8)-8-|,
+            0,
+            |-8-self.customViewContainerView.height(>=0)-8-|,
             0,
             |-8-self.footerView.height(>=20)-8-|,
             8
@@ -280,23 +285,18 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
             let dismissKeyboardTap = UITapGestureRecognizer.init(target: self, action: #selector(dismissKeyboard))
             self.view.addGestureRecognizer(dismissKeyboardTap)
             
-//            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-//            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+            //            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+            //            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         }
         
+        self.customViewContainerView.clipsToBounds = true
         if let custom = self.customView {
-            let lastSubView = self.contentView.subviews.last
-            self.contentView.translates(subViews: custom)
-            if let last = lastSubView {
-                custom.topAttribute == last.bottomAttribute + 8
-                custom.left(8).right(8).bottom(0)
-            } else {
-                self.contentView.layout(
-                    0,
-                    |-8-custom-8-|,
-                    0
-                )
-            }
+            self.customViewContainerView.translates(subViews: custom)
+            self.contentView.layout(
+                self.customViewInsets.top,
+                |-self.customViewInsets.left-custom-self.customViewInsets.right-|,
+                self.customViewInsets.bottom
+            )
         }
         
         if self.hasDefaultClosureButton && self.buttonInfoSet.isEmpty {
@@ -322,44 +322,44 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
     }
     
     /*@objc
-    private func keyboardWillShow(_ notification: Notification) {
-        guard let userInfo = notification.userInfo,
-            let keyboardframe = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect else {
-            return
-        }
-        let mainViewHeight = self.view.bounds.height
-        let mainViewHalf = mainViewHeight * 0.5
-        let keyboradHeight = keyboardframe.height
-        let mainLeftHeight = mainViewHeight - keyboradHeight
-        let containerHeight = self.containerView.bounds.height
-        
-        let extend = self.backgroundCornerRadius
-        
-        UIView.animate(withDuration: 0.25) { [weak self] in
-            let centerY: CGFloat
-            if mainLeftHeight >= containerHeight {
-                centerY = mainViewHalf - mainLeftHeight * 0.5
-            } else {
-                if keyboradHeight <= mainViewHalf {
-                    centerY = mainViewHalf - (mainLeftHeight - containerHeight * 0.5)
-                } else {
-                    centerY = (keyboradHeight - mainViewHalf) + containerHeight * 0.5 + 8
-                }
-            }
-            self?.containerView.centerYConstraint?.constant = -fabs(centerY)
-            self?.view.layoutIfNeeded()
-        }
-    }
-    
-    @objc
-    private func keyboardWillHide(_ notification: Notification) {
-        let extend = self.backgroundCornerRadius
-        UIView.animate(withDuration: 0.25) { [weak self] in
-            self?.containerView.centerYConstraint?.constant = 0
-            self?.view.layoutIfNeeded()
-        }
-    }
-    */
+     private func keyboardWillShow(_ notification: Notification) {
+     guard let userInfo = notification.userInfo,
+     let keyboardframe = userInfo[UIKeyboardFrameEndUserInfoKey] as? CGRect else {
+     return
+     }
+     let mainViewHeight = self.view.bounds.height
+     let mainViewHalf = mainViewHeight * 0.5
+     let keyboradHeight = keyboardframe.height
+     let mainLeftHeight = mainViewHeight - keyboradHeight
+     let containerHeight = self.containerView.bounds.height
+     
+     let extend = self.backgroundCornerRadius
+     
+     UIView.animate(withDuration: 0.25) { [weak self] in
+     let centerY: CGFloat
+     if mainLeftHeight >= containerHeight {
+     centerY = mainViewHalf - mainLeftHeight * 0.5
+     } else {
+     if keyboradHeight <= mainViewHalf {
+     centerY = mainViewHalf - (mainLeftHeight - containerHeight * 0.5)
+     } else {
+     centerY = (keyboradHeight - mainViewHalf) + containerHeight * 0.5 + 8
+     }
+     }
+     self?.containerView.centerYConstraint?.constant = -fabs(centerY)
+     self?.view.layoutIfNeeded()
+     }
+     }
+     
+     @objc
+     private func keyboardWillHide(_ notification: Notification) {
+     let extend = self.backgroundCornerRadius
+     UIView.animate(withDuration: 0.25) { [weak self] in
+     self?.containerView.centerYConstraint?.constant = 0
+     self?.view.layoutIfNeeded()
+     }
+     }
+     */
     
     @objc
     private func dismissKeyboard() {
@@ -426,9 +426,9 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
     /// - Returns: The button itself
     @discardableResult
     private func addAction(_ actionTitle: String,
-                        style: ParamountButton.DisplayStyle,
-                        sound: SystemSounds.IDs? = nil,
-                        onTap closure: @escaping ParamountButtonTapActionClosure) -> ParamountButton {
+                           style: ParamountButton.DisplayStyle,
+                           sound: SystemSounds.IDs? = nil,
+                           onTap closure: @escaping ParamountButtonTapActionClosure) -> ParamountButton {
         let button = ParamountButton.init(title: actionTitle, style: style, sound: sound, closure: closure)
         
         let lastButton = self.footerView.subviews.last
@@ -485,6 +485,7 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
                          defaultButton: Bool = true,
                          textFields fieldSet: ParamountTextFieldInfoSet = [],
                          customView custom: UIView? = nil,
+                         insets: UIEdgeInsets = .zero,
                          background: UIView? = nil,
                          sound: SystemSounds.IDs? = nil,
                          blur: Bool = true,
@@ -501,6 +502,7 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
         dialog.textFieldInfoSet.append(contentsOf: fieldSet)
         dialog.hasDefaultClosureButton = defaultButton
         dialog.customView = custom
+        dialog.customViewInsets = insets
         dialog.genericSoundID = sound
         dialog.backgroundView = background
         dialog.blurBackground = background == nil ? blur : false
@@ -534,6 +536,7 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
                          defaultButton: Bool = true,
                          textFields fieldSet: ParamountTextFieldInfoSet = [],
                          customView custom: UIView? = nil,
+                         insets: UIEdgeInsets = .zero,
                          background: UIView? = nil,
                          sound: SystemSounds.IDs? = nil,
                          blur: Bool = true,
@@ -551,6 +554,7 @@ open class ParamountDialog: UIViewController, PresentationSettingsDelegate {
                                           defaultButton: defaultButton,
                                           textFields: fieldSet,
                                           customView: custom,
+                                          insets: insets,
                                           background: background,
                                           sound: sound,
                                           blur: blur,
